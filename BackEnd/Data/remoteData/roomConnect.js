@@ -1,0 +1,1 @@
+// Nhan du lieu tu gateway
