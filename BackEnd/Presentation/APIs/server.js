@@ -1,4 +1,5 @@
 const express = require('express');
+var colors = require('colors');
 // const bulb = require('../../Domain/Usecases/ManageBulb/ManageBulb');
 // const fan = require('../../Domain/Usecases/ManageFan/ManageFan');
 // const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
@@ -16,7 +17,8 @@ const room = require('../../Domain/Usecases/ViewRoomStatus/Test_ViewRoomStatus')
 const app = express();
 const PORT = 8000;
 
-// Chi tiet cua tung API duoc hien thuc o trong thu muc Usecase
+// DANH SACH CAC API CO THE SU DUNG TU FRONTEND
+// Hien thuc cua tung API o trong thu muc Usecase
 
 app.get("/", function (req, res) {
   res.send("API is running...");
@@ -78,7 +80,7 @@ app.get("/room", function (req, res) {
 app.listen(
   PORT,
   console.log(
-    `express server is running on port ${PORT}`
+    `express server is running on port ${PORT}`.cyan.bold
   )
 );
 

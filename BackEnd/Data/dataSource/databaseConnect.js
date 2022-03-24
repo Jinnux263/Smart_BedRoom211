@@ -12,6 +12,8 @@
 //     });
 // }
 
+// THIET LAP THONG TIN DANG NHAP DATABASE TAI DAY
+
 const DBconfig = {
     host: "localhost",
     user: "root",
