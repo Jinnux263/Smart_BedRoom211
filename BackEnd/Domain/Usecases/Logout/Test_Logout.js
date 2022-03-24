@@ -1,4 +1,4 @@
-function logout() {
+function logout(req, res) {
     console.log("logout");
 };
 

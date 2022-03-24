@@ -28,43 +28,43 @@ const bulbID = 1;
 // Login
 app.post("/login", function (req, res) {
   //Truyen vao thong tin dang nhap
-  login.authentication(req.body);
+  login.authentication(req, res);
 });
 
 
 // Logout
 app.post("/logout", function (req, res) {
-  logout.logout();
+  logout.logout(req, res);
 });
 
 
 // Update device
 app.post("/fan", function (req, res) {
-  fan.updateState();
+  fan.updateState(req, res);
 });
 
 app.post("/bulb", function (req, res) {
-  bulb.updateState();
+  bulb.updateState(req, res);
 });
 
 
 // Get device information
 app.get("/fan", function (req, res) {
-  fan.getInformation();
+  fan.getInformation(req, res);
 });
 
 app.get("/bulb", function (req, res) {
-  bulb.getInformation();
+  bulb.getInformation(req, res);
 });
 
 
 // Get data history
 app.get("/fan/history", function (req, res) {
-  history.getHistory(fanID);
+  history.getHistory(req, res, fanID);
 });
 
 app.get("/bulb/history", function (req, res) {
-  history.getHistory(bulbID);
+  history.getHistory(req, res, bulbID);
 });
 
 

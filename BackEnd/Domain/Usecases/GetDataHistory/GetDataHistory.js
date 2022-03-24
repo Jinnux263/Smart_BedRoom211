@@ -1,6 +1,6 @@
 const database = require('../../../Data/dataSource/databaseConnect')
 
-function getHistory(id) {
+function getHistory(req, res, id) {
     query = ""
     results = database.makeQuery(query)
     console.log("getHistory");

@@ -1,18 +1,24 @@
 const database = require('../../../Data/dataSource/databaseConnect')
 
-function getInformation(id = 1) {
-    query = ""
-    results = database.makeQuery(query);
+function getInformation(req, res, id = 1) {
+    results = {
+        temperature : 10,
+        humidity : 25,
+    }
+    res.send(results)
     console.log("Bulb: getInformation");
 };
 
-function updateState(id = 1) {
-    query = ""
-    results = database.makeQuery(query);
+function updateState(req, res, id = 1) {
+    results = {
+        temperature : 10,
+        humidity : 25,
+    }
+    res.send(results)
     console.log("Bulb: updateState");
 };
 
-function turnOffAuto(id = 1) {
+function turnOffAuto(req, res, id = 1) {
     console.log("Bulb: turnOffAuto");
 };
 
