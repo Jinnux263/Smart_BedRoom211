@@ -24,7 +24,7 @@ app.post("/login", function (req, res) {
 
 // Logout
 app.post("/logout", function (req, res) {
-  login.logout();
+  logout.logout();
 });
 
 
