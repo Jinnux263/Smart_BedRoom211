@@ -1,10 +1,16 @@
 const express = require('express');
-const bulb = require('../../Domain/Usecases/ManageBulb/ManageBulb');
-const fan = require('../../Domain/Usecases/ManageFan/ManageFan');
-const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
-const login = require('../../Domain/Usecases/Login/Login');
-const logout = require('../../Domain/Usecases/Logout/Logout');
-const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
+// const bulb = require('../../Domain/Usecases/ManageBulb/ManageBulb');
+// const fan = require('../../Domain/Usecases/ManageFan/ManageFan');
+// const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
+// const login = require('../../Domain/Usecases/Login/Login');
+// const logout = require('../../Domain/Usecases/Logout/Logout');
+// const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
+const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
+const fan = require('../../Domain/Usecases/ManageFan/Test_ManageFan');
+const history = require('../../Domain/Usecases/GetDataHistory/Test_GetDataHistory');
+const login = require('../../Domain/Usecases/Login/Test_Login');
+const logout = require('../../Domain/Usecases/Logout/Test_Logout');
+const room = require('../../Domain/Usecases/ViewRoomStatus/Test_ViewRoomStatus');
 
 const app = express();
 const port = 8000;
@@ -64,7 +70,7 @@ app.get("/bulb/history", function (req, res) {
 
 // ViewRoomStatus
 app.get("/room", function (req, res) {
-  room.getInformation();
+  room.getInformation(req, res);
 });
 
 

@@ -1,8 +1,10 @@
 const database = require('../../../Data/dataSource/databaseConnect')
 
 function getInformation(req, res) {
-    query = ""
-    results = database.makeQuery(query);
+    results = {
+        temperature : 10,
+        humidity : 25,
+    }
     res.send(results)
     console.log("Room: getInformation");
 };

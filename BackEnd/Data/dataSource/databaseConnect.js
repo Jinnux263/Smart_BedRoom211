@@ -19,10 +19,17 @@ const DBconfig = {
     database: "mydb"
 };
 
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 var connection = mysql.createConnection(DBconfig);
 
+function makeQuery (query) {
+    connection.query(query, function(err, results) {
+        if (err) throw err;
+        return results;
+    });
+}
 module.exports = {
-    connection
+    connection,
+    makeQuery
 }
