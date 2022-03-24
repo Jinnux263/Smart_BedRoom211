@@ -1,13 +1,19 @@
 const database = require('../../../Data/dataSource/databaseConnect')
 
 function getHistory(req, res, id) {
-    results = {
-        temperature : 10,
-        humidity : 25,
-    }
+    results = [
+        {
+            time : '12-12-2020',
+            isOn : true,
+            isAuto : true,
+        }, 
+        {
+            time : '13-12-2020',
+            isOn : false,
+            isAuto : true,
+        }
+    ]
     res.send(results)
-    
-    console.log("getHistory");
 };
 
 module.exports = {

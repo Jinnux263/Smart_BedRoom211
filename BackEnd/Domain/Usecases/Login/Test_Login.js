@@ -7,11 +7,10 @@ function authentication(req, res) {
     const user = new Authen.user(infor.username, infor.password);
 
     results = {
-        temperature : 10,
-        humidity : 25,
+        username : "username",
+        password : "password",
     }
     res.send(results)
-    console.log("authentication")
 };
 
 module.exports = {

@@ -5,6 +5,7 @@ const express = require('express');
 // const login = require('../../Domain/Usecases/Login/Login');
 // const logout = require('../../Domain/Usecases/Logout/Logout');
 // const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
+
 const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
 const fan = require('../../Domain/Usecases/ManageFan/Test_ManageFan');
 const history = require('../../Domain/Usecases/GetDataHistory/Test_GetDataHistory');
@@ -13,7 +14,7 @@ const logout = require('../../Domain/Usecases/Logout/Test_Logout');
 const room = require('../../Domain/Usecases/ViewRoomStatus/Test_ViewRoomStatus');
 
 const app = express();
-const port = 8000;
+const PORT = 8000;
 
 // Chi tiet cua tung API duoc hien thuc o trong thu muc Usecase
 
@@ -75,9 +76,9 @@ app.get("/room", function (req, res) {
 
 
 app.listen(
-  port,
+  PORT,
   console.log(
-    `express server is running on port ${port}`
+    `express server is running on port ${PORT}`
   )
 );
 

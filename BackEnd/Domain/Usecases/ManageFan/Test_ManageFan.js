@@ -2,11 +2,10 @@ const database = require('../../../Data/dataSource/databaseConnect')
 
 function getInformation(req, res, id = 0) {
     results = {
-        temperature : 10,
-        humidity : 25,
+        isOn : true,
+        isAuto : true,
     }
     res.send(results)
-    console.log("Fan: getInformation");
 };
 
 function updateState(req, res, id = 0) {
@@ -15,7 +14,6 @@ function updateState(req, res, id = 0) {
         humidity : 25,
     }
     res.send(results)
-    console.log("Fan: updateState");
 };
 
 function turnOffAuto(req, res, id = 0) {
