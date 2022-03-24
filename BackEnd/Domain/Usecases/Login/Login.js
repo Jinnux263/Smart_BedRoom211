@@ -1,9 +1,14 @@
 const Authen = require('../../Model/User')
 
 function authentication(infor = {username: 'username', password:'password'}) {
-    const user = new Authen.user(infor.username, infor.password);
     //check voi user thay vi infor de dam bao tinh flexible
-    console.log(user);
+    const user = new Authen.user(infor.username, infor.password);
+    
+    query = ""
+    database.connection.query(query, function(err, results) {
+        if (err) throw err;
+        res.send(results);
+    });
 };
 
 module.exports = {
