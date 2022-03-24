@@ -1,2 +1,8 @@
-// luu thong tin cau truc object de truyen va nhan
+const device = function (isOn, isAuto) {
+    this.isOn = isOn;
+    this.isAuto = isAuto;
+}
 
+module.exports = {
+    device
+}

@@ -1,5 +1,5 @@
 function getHistory(id) {
-    console.log("getInformation");
+    console.log("getHistory");
 };
 
 module.exports = {

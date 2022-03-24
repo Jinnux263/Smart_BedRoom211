@@ -1,13 +1,13 @@
-function getInformation(id) {
-    console.log("getInformation");
+function getInformation(id = 0) {
+    console.log("Fan: getInformation");
 };
 
-function updateState(id) {
-    console.log("updateState");
+function updateState(id = 0) {
+    console.log("Fan: updateState");
 };
 
-function turnOffAuto(id) {
-    console.log("turnOffAuto");
+function turnOffAuto(id = 0) {
+    console.log("Fan: turnOffAuto");
 };
 
 module.exports = {

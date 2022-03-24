@@ -1,13 +1,13 @@
-function getInformation(id) {
-    console.log("getInformation");
+function getInformation(id = 1) {
+    console.log("Bulb: getInformation");
 };
 
-function updateState(id) {
-    console.log("updateState");
+function updateState(id = 1) {
+    console.log("Bulb: updateState");
 };
 
-function turnOffAuto(id) {
-    console.log("turnOffAuto");
+function turnOffAuto(id = 1) {
+    console.log("Bulb: turnOffAuto");
 };
 
 module.exports = {
