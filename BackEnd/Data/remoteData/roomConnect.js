@@ -1,1 +1,1 @@
-// Nhan du lieu tu gateway
+// Nhan du lieu tu gateway va dua vao Database, co the co hoac se duoc hien thuc thanh he thong rieng

@@ -1,5 +1,8 @@
+const Authen = require('../../Model/User')
+
 function authentication(infor) {
-    console.log("authentication");
+    const user = new Authen.user(infor.username, infor.password);
+    console.log(user);
 };
 
 module.exports = {
