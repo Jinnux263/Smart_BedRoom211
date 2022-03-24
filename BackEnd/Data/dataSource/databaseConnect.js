@@ -1,5 +1,5 @@
-import config from './dbconfig.js'
-import sql from "mssql/msnodesqlv8.js"
+const config = require("./dbconfig.js");
+const sql = require("mssql/msnodesqlv8.js");
 
 const DBconnect = () => {
     sql.connect(config).then(() => {
@@ -12,4 +12,6 @@ const DBconnect = () => {
     });
 }
 
-export default DBconnect
+module.exports = {
+    DBconnect
+}

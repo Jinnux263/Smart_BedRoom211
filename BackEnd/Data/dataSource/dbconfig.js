@@ -11,5 +11,7 @@ const DBconfig = {
         trustedConnection: true
     }
 };
-export default DBconfig;
+module.exports =  {
+    DBconfig
+}
 

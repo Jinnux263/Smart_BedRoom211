@@ -15,6 +15,8 @@ app.get("/", function (req, res) {
 const fanID = 0;
 const bulbID = 1;
 
+// Chi tiet cua tung API duoc hien thuc o trong thu muc Usecase
+
 // Login
 app.post("/login", function (req, res) {
   //Truyen vao thong tin dang nhap
