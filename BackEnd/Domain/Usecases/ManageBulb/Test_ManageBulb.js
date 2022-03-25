@@ -5,7 +5,7 @@ function getInformation(req, res, id = 1) {
         isOn : true,
         isAuto : true,
     }
-    res.send(results)
+    res.status(200).json(results)
 };
 
 function updateState(req, res, id = 1) {

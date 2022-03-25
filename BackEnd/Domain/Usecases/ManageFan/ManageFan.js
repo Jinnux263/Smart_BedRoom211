@@ -1,13 +1,14 @@
 const database = require('../../../Data/dataSource/databaseConnect')
+const queries = require('../../../Data/dataSource/query')
 
 function getInformation(req, res, id = 0) {
-    query = ""
+    query = queries.fan_getInformation()
     results = database.makeQuery(query);
     console.log("Fan: getInformation");
 };
 
 function updateState(req, res, id = 0) {
-    query = ""
+    query = queries.fan_updateState()
     results = database.makeQuery(query);
     console.log("Fan: updateState");
 };

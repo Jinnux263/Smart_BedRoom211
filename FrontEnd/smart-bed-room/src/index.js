@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import axios from 'axios'
+
+// axios.get('http://localhost:8000/bulb').then(data => console.log(data)).catch(err => console.log(err))
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,6 +13,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
