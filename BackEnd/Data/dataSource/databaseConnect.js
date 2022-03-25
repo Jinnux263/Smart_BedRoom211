@@ -18,12 +18,18 @@ const DBconfig = {
     host: "localhost",
     user: "root",
     password: "123456",
-    database: "mydb"
+    database: "DoAn"
 };
 
 const mysql = require('mysql');
 
 var connection = mysql.createConnection(DBconfig);
+
+connection.connect(function(err){
+    if (err) throw err;
+    console.log("Connect to database successfully!")
+})
+
 
 function makeQuery (query) {
     connection.query(query, function(err, results) {
@@ -31,6 +37,7 @@ function makeQuery (query) {
         return results;
     });
 }
+
 module.exports = {
     connection,
     makeQuery
