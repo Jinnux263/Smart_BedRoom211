@@ -85,26 +85,28 @@ app.listen(
 );
 
 
-
-
-
-const { Worker } = require("worker_threads");
-
-const seprateThread = new Worker(__dirname + "/seprateThread.js");
-
-seprateThread.on("message", (result) => {
-  res.send(`Processed function getSum on seprate thread:  ${result}`);
-  });
-
+// hien thuc worker tren mot thread moi
 // CHAY DOAN LENH NAY TREN MOT THREAD MOI
-var minutes = 5, the_interval = minutes * 60 * 1000;
 
-function handleNewData() {
-    // Lay du lieu o Adafruit va ghi vao Database o day
-}
 
-setInterval(function() {
-  console.log("I am doing my 5 minutes check");
-  handleNewData();
+// const { Worker } = require("worker_threads");
+// const { get } = require('http');
 
-}, the_interval);
+// const seprateThread = new Worker(__dirname + "/seprateThread.js");
+
+// seprateThread.on("message", (result) => {
+//   res.send(`Processed function getSum on seprate thread:  ${result}`);
+//   });
+
+// var minutes = 5, the_interval = minutes * 60 * 1000;
+
+// function handleNewData() {
+//     // Lay du lieu o Adafruit va ghi vao Database o day
+//     // https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-fan
+// }
+
+// setInterval(function() {
+//   console.log("I am doing my 5 minutes check");
+//   handleNewData();
+
+// }, the_interval);
