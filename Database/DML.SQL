@@ -17,10 +17,10 @@ INSERT INTO Room VALUES ('room22', 'bedroom');
 
 /*--------------DATA OF ROOM_DATA-------------*/
 
-INSERT INTO Room_Data VALUES ('room11', 2022-03-25, 33, 400, 1);
-INSERT INTO Room_Data VALUES ('room12', 2022-03-25, 33, 400, 1);
-INSERT INTO Room_Data VALUES ('room21', 2022-03-25, 33, 400, 1);
-INSERT INTO Room_Data VALUES ('room22', 2022-03-25, 33, 400, 1);
+INSERT INTO Room_Data VALUES ('room11', 2022-03-25, 33, 400, 79, 1);
+INSERT INTO Room_Data VALUES ('room12', 2022-03-25, 33, 400, 79, 1);
+INSERT INTO Room_Data VALUES ('room21', 2022-03-25, 33, 400, 79, 1);
+INSERT INTO Room_Data VALUES ('room22', 2022-03-25, 33, 400, 79, 1);
 
 /*--------------DATA OF DEVICE-------------*/
 

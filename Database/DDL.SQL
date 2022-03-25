@@ -27,6 +27,7 @@ CREATE TABLE Room_Data
 	time DATE,
 	temperature Float(10),
 	brightness Float(10),
+	humidity Float(10),
 	isUse BIT,
 
 	PRIMARY KEY(roomID),
