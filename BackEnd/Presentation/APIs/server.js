@@ -112,5 +112,4 @@ app.listen(
 // }, the_interval);
 
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
-
 AdafruitController.updateDatabase()

@@ -1,5 +1,7 @@
 const database = require('../../../Data/dataSource/databaseConnect')
 const queries = require('../../../Data/dataSource/queries')
+const bulb = require('../../Model/Bulb')
+
 
 function getInformation(req, res, id = 1) {
     query = queries.bulb_getInformation()
