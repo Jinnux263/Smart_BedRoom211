@@ -1,0 +1,48 @@
+Các thiết bị:
+1. Điều khiển đèn
++ Bật đèn: phương thức POST, url: https://io.adafruit.com/api/feeds/co3109-led/data, body: {"value": "3"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/co3109-led/data', 
+            {"value": "3"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
++ Tắt đèn: phương thức POST, url: https://io.adafruit.com/api/feeds/co3109-led/data, body: {"value": "2"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/co3109-led/data', 
+            {"value": "2"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
+
+2. Điều khiển quạt
++ Bật quạt: phương thức POST, url: https://io.adafruit.com/api/feeds/co3109-fan/data, body: {"value": "1"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/co3109-fan/data', 
+            {"value": "1"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
++ Tắt quạt: phương thức POST, url: https://io.adafruit.com/api/feeds/co3109-fan/data, body: {"value": "0"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/co3109-fan/data', 
+            {"value": "0"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
+
+3. Tự động điều khiển đèn
++ Bật tự động điều khiển đèn: phương thức POST, url: https://io.adafruit.com/api/feeds/auto-led/data, body: {"value": "7"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+            {"value": "7"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
++ Tắt tự động điều khiển đèn: phương thức POST, url: https://io.adafruit.com/api/feeds/auto-led/data, body: {"value": "6"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+            {"value": "6"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
+
+4. Tự động điều khiển quạt
++ Bật tự động điều khiển quạt: phương thức POST, url: https://io.adafruit.com/api/feeds/auto-fan/data, body: {"value": "5"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+            {"value": "5"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));
++ Tắt tự động điều khiển quạt: phương thức POST, url: https://io.adafruit.com/api/feeds/auto-fan/data, body: {"value": "4"}, cần gửi kèm AIO-key trong header
+ - Ví dụ: axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+            {"value": "4"}, {
+                headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+            }).then(response => console.log(response));

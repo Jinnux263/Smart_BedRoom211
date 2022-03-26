@@ -1,0 +1,78 @@
+Các thiết bị:
+1. Quạt (fan): ON - 1, OFF - 0
++ Lấy status: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-fan
++ Kết quả trả về như sau: 
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},
+	"id":1814501,"name":"CO3109_FAN","description":"","license":null,"history":true,
+	"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,"last_value":"0","created_at":"2022-02-23T14:22:07Z",
+	"updated_at":"2022-03-25T12:23:20Z","wipper_pin_info":null,"key":"co3109-fan","writable":false,"group":{"id":514120,"key":"default",
+	"name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định status: last_value = 0 --> OFF, last_value = 1 --> ON
+
+2. Đèn (led): ON - 3, OFF - 2
++ Lấy status: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-led
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1833242,"name":"CO3109_LED",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,
+	"last_value":"2","created_at":"2022-03-15T02:54:00Z","updated_at":"2022-03-25T12:23:22Z","wipper_pin_info":null,"key":"co3109-led",
+	"writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default",
+	"name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định status: last_value = 2 --> OFF, last_value = 3 --> ON
+
+3. Quạt tự động (auto-fan): ON - 5, OFF - 4
++ Lấy isAuto: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/auto-fan
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1842320,"name":"AUTO_FAN",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,
+	"unit_symbol":null,"last_value":"4","created_at":"2022-03-25T01:26:29Z","updated_at":"2022-03-25T12:23:21Z",
+	"wipper_pin_info":null,"key":"auto-fan","writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},
+	"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định status: last_value = 4 --> OFF, last_value = 5 --> ON
+
+4. Đèn tự động (auto-led): ON - 7, OFF - 6
++ Lấy isAuto: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/auto-led
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1842321,"name":"AUTO_LED",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,
+	"unit_symbol":null,"last_value":"6","created_at":"2022-03-25T01:27:43Z","updated_at":"2022-03-25T12:23:23Z",
+	"wipper_pin_info":null,"key":"auto-led","writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},
+	"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định status: last_value = 6 --> không tự động, last_value = 7 --> tự động
+
+5. Cảm biến hồng ngoại (infrared sensor): 
++ Lấy isUsed: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-infrared
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1814505,"name":"CO3109_INFRARED","description":"",
+	"license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,"last_value":"0",
+	"created_at":"2022-02-23T14:25:23Z","updated_at":"2022-03-25T09:14:02Z","wipper_pin_info":null,"key":"co3109-infrared",
+	"writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định isUsed: last_value = 0 --> có người, last_value = 1 --> không có người
+
+6. Cảm biến DHT11
+- Nhiệt độ
++ Lấy temperature: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-temperature
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1814504,"name":"CO3109_TEMPERATURE",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,
+	"last_value":"25","created_at":"2022-02-23T14:24:34Z","updated_at":"2022-03-25T09:14:25Z","wipper_pin_info":null,"key":"co3109-temperature",
+	"writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định temperature, như dữ liệu trên temperature = 25
+
+- Độ ẩm
++ Lấy humidity: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-humidity
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1814511,"name":"CO3109_HUMIDITY",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,
+	"last_value":"47","created_at":"2022-02-23T14:33:56Z","updated_at":"2022-03-25T09:14:25Z","wipper_pin_info":null,"key":"co3109-humidity",
+	"writable":false,"group":{"id":514120,"key":"default","name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định humidity, như dữ liệu trên humidity = 47
+
+7. Cảm biến ánh sáng
++ Lấy brightness: phương thức GET, url: https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-light
++ Kết quả trả về như sau:
+	{"username":"Nhom_N","owner":{"id":555859,"username":"Nhom_N"},"id":1814503,"name":"CO3109_LIGHT",
+	"description":"","license":null,"history":true,"enabled":true,"visibility":"public","unit_type":null,"unit_symbol":null,"last_value":"1",
+	"created_at":"2022-02-23T14:23:29Z","updated_at":"2022-03-25T09:14:25Z","wipper_pin_info":null,"key":"co3109-light","writable":false,
+	"group":{"id":514120,"key":"default","name":"Default","user_id":555859},"groups":[{"id":514120,"key":"default","name":"Default","user_id":555859}]}
++ Dùng trường last_value để xác định brightness, như dữ liệu trên brightness = 1 
+
