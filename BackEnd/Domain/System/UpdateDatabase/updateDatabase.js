@@ -3,32 +3,28 @@ const database = require('../../../Data/dataSource/databaseConnect')
 const queries = require('../../../Data/dataSource/queries')
 
 async function updateDatabase() {
+    var res = []
+    res.push(AdafruitAPI.AdafruitGetAutoFanData())
+    res.push(AdafruitAPI.AdafruitGetAutoLedData())
+    res.push(AdafruitAPI.AdafruitGetBulbData())
+    res.push(AdafruitAPI.AdafruitGetDHT11SensorData())
+    res.push(AdafruitAPI.AdafruitGetFanData())
+    res.push(AdafruitAPI.AdafruitGetHumidityData())
+    res.push(AdafruitAPI.AdafruitGetInfraredSensorData())
+    res.push(AdafruitAPI.AdafruitGetLightSensorData())
 
-    const autoFan = await AdafruitAPI.AdafruitGetAutoFanData()
+    var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await Promise.all(res)
+
+    // var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await Promise.all([AdafruitAPI.AdafruitGetAutoFanData(), AdafruitAPI.AdafruitGetAutoLedData(), AdafruitAPI.AdafruitGetBulbData(), AdafruitAPI.AdafruitGetDHT11SensorData(), AdafruitAPI.AdafruitGetFanData(), AdafruitAPI.AdafruitGetHumidityData(), AdafruitAPI.AdafruitGetInfraredSensorData(), AdafruitAPI.AdafruitGetLightSensorData()]);
+
     console.log(autoFan.name)
-
-    const autoLed = await AdafruitAPI.AdafruitGetAutoLedData()
     console.log(autoLed.name)
-
-    const bulb = await AdafruitAPI.AdafruitGetBulbData()
     console.log(bulb.name)
-
-    const DHT11 = await AdafruitAPI.AdafruitGetDHT11SensorData()
     console.log(DHT11.name)
-
-    const fan = await AdafruitAPI.AdafruitGetFanData()
     console.log(fan.name)
-
-    const humidity = await AdafruitAPI.AdafruitGetHumidityData()
     console.log(humidity.name)
-
-    const infraredSencor = await AdafruitAPI.AdafruitGetInfraredSensorData()
     console.log(infraredSencor.name)
-
-    const lightSensor = await AdafruitAPI.AdafruitGetLightSensorData()
     console.log(lightSensor.name)
-
-
 }
 
 module.exports = {

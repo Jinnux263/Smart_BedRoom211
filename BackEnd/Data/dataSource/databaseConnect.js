@@ -16,7 +16,7 @@ var connection = "mysql.createConnection(DBconfig);"
 // })
 
 
-function makeQuery (query) {
+async function makeQuery (query) {
     connection.query(query, function(err, results) {
         if (err) throw err;
         return results;
