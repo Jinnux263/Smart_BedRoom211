@@ -110,3 +110,7 @@ app.listen(
 //   handleNewData();
 
 // }, the_interval);
+
+const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
+
+AdafruitController.updateDatabase()
