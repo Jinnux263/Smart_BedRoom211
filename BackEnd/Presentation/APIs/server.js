@@ -98,18 +98,13 @@ app.listen(
 //   res.send(`Processed function getSum on seprate thread:  ${result}`);
 //   });
 
-// var minutes = 5, the_interval = minutes * 60 * 1000;
-
-// function handleNewData() {
-//     // Lay du lieu o Adafruit va ghi vao Database o day
-//     // https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-fan
-// }
-
-// setInterval(function() {
-//   console.log("I am doing my 5 minutes check");
-//   handleNewData();
-
-// }, the_interval);
-
+var minutes = 5, the_interval = minutes * 60 * 1000;
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
+
 AdafruitController.updateDatabase()
+
+setInterval(function() {
+  console.log("I am doing my 5 minutes check");
+  AdafruitController.updateDatabase()
+
+}, the_interval);

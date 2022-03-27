@@ -1,29 +1,51 @@
 const DBconfig = {
     host: "localhost",
     user: "root",
-    password: "123456",
-    database: "DoAn"
+    password: "admin",
+    database: "DoAn",
+    waitForConnections: true,
+    connectionLimit: 100,
+    queueLimit: 0
 };
 
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
 
-var connection = "mysql.createConnection(DBconfig);"
-// var connection = mysql.createConnection(DBconfig);
+// var connection = "mysql.createConnection(DBconfig);"
+const connection = mysql.createPool(DBconfig)
 
-// connection.connect(function(err){
-//     if (err) throw err;
-//     console.log("Connect to database successfully!")
-// })
+async function makeQuery(query = "") {
+    try {
+        const rows = await connection.query(query);
+        return rows[0];
+    } catch (err) {
+        console.log('ERROR => ' + err);
+        return err;
+    }
+}
 
+async function makeUpdateQuery(query = "") {
+    try {
+        const rows = await connection.query(query);
+        return rows[0];
+    } catch (err) {
+        console.log('ERROR => ' + err);
+        return err;
+    }
+}
 
-async function makeQuery (query) {
-    connection.query(query, function(err, results) {
-        if (err) throw err;
-        return results;
-    });
+async function makeSelectQuery(query = "") {
+    try {
+        const rows = await connection.query(query);
+        return rows[0];
+    } catch (err) {
+        console.log('ERROR => ' + err);
+        return err;
+    }
 }
 
 module.exports = {
-    connection,
-    makeQuery
+    makeQuery,
+    makeUpdateQuery,
+    makeSelectQuery,
+
 }

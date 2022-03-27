@@ -24,13 +24,13 @@ CREATE TABLE Room
 CREATE TABLE Room_Data
 (
 	roomID VARCHAR(10),
-	time DATE,
+	time DATETIME,
 	temperature Float(10),
 	brightness Float(10),
 	humidity Float(10),
 	isUse BIT,
 
-	PRIMARY KEY(roomID),
+	PRIMARY KEY(roomID, time),
 	FOREIGN KEY(roomID) REFERENCES Room(roomID)
 );
 
@@ -48,10 +48,10 @@ CREATE TABLE Device_Data
 (
 	roomID VARCHAR(10),
 	deviceID VARCHAR(10),
-	time DATE,
+	time DATETIME,
 	status BIT,
 	isAuto BIT,
 
-	PRIMARY KEY(roomID, deviceID),
+	PRIMARY KEY(roomID, deviceID, time),
 	FOREIGN KEY(roomID, deviceID) REFERENCES Device(roomID, deviceID)
 );
