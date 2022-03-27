@@ -15,16 +15,19 @@ async function updateDatabase() {
 
     var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await Promise.all(res)
 
-    // var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await Promise.all([AdafruitAPI.AdafruitGetAutoFanData(), AdafruitAPI.AdafruitGetAutoLedData(), AdafruitAPI.AdafruitGetBulbData(), AdafruitAPI.AdafruitGetDHT11SensorData(), AdafruitAPI.AdafruitGetFanData(), AdafruitAPI.AdafruitGetHumidityData(), AdafruitAPI.AdafruitGetInfraredSensorData(), AdafruitAPI.AdafruitGetLightSensorData()]);
 
-    console.log(autoFan.name)
-    console.log(autoLed.name)
-    console.log(bulb.name)
-    console.log(DHT11.name)
-    console.log(fan.name)
-    console.log(humidity.name)
-    console.log(infraredSencor.name)
-    console.log(lightSensor.name)
+    // Cap nhat du lieu vao Database o day
+    // database.makeQuery("")
+
+    
+    console.log(autoFan)
+    // console.log(autoLed.name)
+    // console.log(bulb.name)
+    // console.log(DHT11.name)
+    // console.log(fan.name)
+    // console.log(humidity.name)
+    // console.log(infraredSencor.name)
+    // console.log(lightSensor.name)
 }
 
 module.exports = {
