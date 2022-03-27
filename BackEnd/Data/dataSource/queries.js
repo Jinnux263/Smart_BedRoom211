@@ -1,36 +1,45 @@
 function getHistoryQuery () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 function room_getInformation () {
-    this.content = "";
+    var msg = "SELECT * FROM Room";
+    return msg;
 }
 
 function bulb_getInformation () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function bulb_updateState () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function bulb_turnOffAuto () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function fan_getInformation () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function fan_updateState () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function fan_turnOffAuto () {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 function authentication() {
-    this.content = "";
+    var msg = "SELECT * FROM DEVICE_DATA";
+    return msg;
 }
 
 

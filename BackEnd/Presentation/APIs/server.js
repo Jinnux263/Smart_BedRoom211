@@ -1,18 +1,18 @@
 const express = require('express');
 var colors = require('colors');
-// const bulb = require('../../Domain/Usecases/ManageBulb/ManageBulb');
-// const fan = require('../../Domain/Usecases/ManageFan/ManageFan');
-// const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
-// const login = require('../../Domain/Usecases/Login/Login');
-// const logout = require('../../Domain/Usecases/Logout/Logout');
-// const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
+const bulb = require('../../Domain/Usecases/ManageBulb/ManageBulb');
+const fan = require('../../Domain/Usecases/ManageFan/ManageFan');
+const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
+const login = require('../../Domain/Usecases/Login/Login');
+const logout = require('../../Domain/Usecases/Logout/Logout');
+const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
 
-const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
-const fan = require('../../Domain/Usecases/ManageFan/Test_ManageFan');
-const history = require('../../Domain/Usecases/GetDataHistory/Test_GetDataHistory');
-const login = require('../../Domain/Usecases/Login/Test_Login');
-const logout = require('../../Domain/Usecases/Logout/Test_Logout');
-const room = require('../../Domain/Usecases/ViewRoomStatus/Test_ViewRoomStatus');
+// const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
+// const fan = require('../../Domain/Usecases/ManageFan/Test_ManageFan');
+// const history = require('../../Domain/Usecases/GetDataHistory/Test_GetDataHistory');
+// const login = require('../../Domain/Usecases/Login/Test_Login');
+// const logout = require('../../Domain/Usecases/Logout/Test_Logout');
+// const room = require('../../Domain/Usecases/ViewRoomStatus/Test_ViewRoomStatus');
 
 const app = express();
 const PORT = 8000;
@@ -90,12 +90,11 @@ app.listen(
 const { Worker } = require('worker_threads');
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
 
-var minutes = 5, the_interval = minutes * 60 * 1000;
+var minutes = 1, the_interval = minutes * 60 * 1000;
 
 AdafruitController.updateDatabase()
 
 setInterval(async function() {
-  console.log("Start update Database...");
   handleNewData()
 }, the_interval);
 
