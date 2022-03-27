@@ -87,24 +87,26 @@ app.listen(
 
 // hien thuc worker tren mot thread moi
 // CHAY DOAN LENH NAY TREN MOT THREAD MOI
-
-
-// const { Worker } = require("worker_threads");
-// const { get } = require('http');
-
-// const seprateThread = new Worker(__dirname + "/seprateThread.js");
-
-// seprateThread.on("message", (result) => {
-//   res.send(`Processed function getSum on seprate thread:  ${result}`);
-//   });
+const { Worker } = require('worker_threads');
 
 var minutes = 5, the_interval = minutes * 60 * 1000;
-const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
 
 AdafruitController.updateDatabase()
 
-setInterval(function() {
-  console.log("I am doing my 5 minutes check");
-  AdafruitController.updateDatabase()
-
+setInterval(async function() {
+  console.log("Start update Database...");
+  handleNewData()
 }, the_interval);
+
+function handleNewData (workerData) {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(__dirname + '/worker.js', { workerData });
+
+    worker.on('message', resolve);
+    worker.on('error', reject);
+    worker.on('exit', (code) => {
+      if (code !== 0)
+        reject(new Error(`stopped with  ${code} exit code`));
+    });
+  })
+}
