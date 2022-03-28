@@ -80,7 +80,7 @@ async function AdafruitGetInfraredSensorData () {
     });
 }
 
-async function AdafruitTurnOnAutoBulb (isOn) {
+async function AdafruitTurnAutoBulb (isOn) {
     value = isOn ? "7" : "6";
     return axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
     {"value": value}, {
@@ -104,7 +104,7 @@ async function AdafruitTurnAutoFan (isOn) {
     });
 }
 
-async function AdafruitTurnOnBulb (isOn) {
+async function AdafruitTurnBulb (isOn) {
     value = isOn ? "3" : "2";
     return axios.post('https://io.adafruit.com/api/feeds/co3109-led/data', 
     {"value": value}, {
@@ -138,9 +138,9 @@ module.exports = {
     AdafruitGetHumidityData,
     AdafruitGetDHT11SensorData,
     AdafruitGetInfraredSensorData,
-    AdafruitTurnOnAutoBulb,
+    AdafruitTurnAutoBulb,
     AdafruitTurnAutoFan,
-    AdafruitTurnOnBulb,
+    AdafruitTurnBulb,
     AdafruitTurnFan,
 
 }
