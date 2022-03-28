@@ -109,8 +109,7 @@ app.listen(
 );
 
 
-// hien thuc worker tren mot thread moi
-// CHAY DOAN LENH NAY TREN MOT THREAD MOI
+
 const { Worker } = require('worker_threads');
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
 const systemInit = require('../../Domain/System/InitData/InitData')

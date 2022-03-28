@@ -2,10 +2,6 @@ function getHistoryQuery () {
     var msg = "SELECT * FROM DEVICE_DATA";
     return msg;
 }
-function room_getInformation () {
-    var msg = "SELECT * FROM Room";
-    return msg;
-}
 
 function bulb_getInformation () {
     var msg = "SELECT * FROM DEVICE_DATA";
@@ -25,7 +21,6 @@ function authentication() {
 
 const queries = {
     getHistoryQuery,
-    room_getInformation,
     bulb_getInformation,
     fan_getInformation,
     authentication,

@@ -1,12 +1,9 @@
-const database = require('../../../Data/dataSource/databaseConnect')
-const queries = require('../../../Data/dataSource/queries')
+// const database = require('../../../Data/dataSource/databaseConnect')
+// const queries = require('../../../Data/dataSource/queries')
 const AdafruitAPI = require('../../../Data/remoteData/remoteData')
-const fan = require('../../Model/Fan')
 
 
 async function getInformation(req, res) {
-    //Lay du lieu hien tai tren Adafruit chu khong lay tu database
-
     [isOn, isAuto] = await Promise.all([AdafruitAPI.AdafruitGetFanData(), AdafruitAPI.AdafruitGetAutoFanData()])
     results = {
         name: "Fan",
@@ -17,17 +14,19 @@ async function getInformation(req, res) {
 };
 
 async function updateState(req, res) {
+    [isOn, isAuto] = await Promise.all([AdafruitAPI.AdafruitGetFanData(), AdafruitAPI.AdafruitGetAutoFanData()])
+
     obj = {
-        isOn : false !== req.body.isOn,
-        isAuto : false !== req.body.isAuto,
+        isOn : false !== isOn,
+        isAuto : false !== isAuto,
     }
     
-    if (obj.isOn != fan.isOn) {
+    if (obj.isOn !== isOn) {
         AdafruitAPI.AdafruitTurnAutoBulb(obj.isAuto)
         AdafruitAPI.AdafruitTurnFan(obj.isOn)
     }
 
-    if (obj.isAuto != fan.isAuto) {
+    if (obj.isAuto !== isAuto) {
         AdafruitAPI.AdafruitTurnAutoFan(obj.isAuto)
     }
     

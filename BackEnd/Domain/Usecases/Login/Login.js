@@ -8,7 +8,10 @@ async function authentication(req, res) {
 
     query = queries.authentication()
     results = await database.makeQuery(query);
-    res.status(200).send(results)
+
+
+    res.status(200).send(true)
+    // res.status(200).send(results)
 };
 
 module.exports = {

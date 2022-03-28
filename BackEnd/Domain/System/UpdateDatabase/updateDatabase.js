@@ -6,12 +6,15 @@ async function updateDatabase() {
 
     var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await getAllDataFromAdaFruit()
     
+    
     var current = new Date();
     timeinput = `${current.getFullYear()}-${current.getMonth()}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
+
 
     const objFan = newDevice(timeinput, "fan02", 1, 0 )
     const objBulb = newDevice(timeinput, "light02", 1, 0 )
     var objRoom = newRoom(timeinput)
+
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${timeinput}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
     str2 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objBulb.name}', '${objBulb.time}', ${objBulb.last_value}, ${objBulb.isOn});`
