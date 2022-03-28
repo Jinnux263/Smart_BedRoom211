@@ -25,7 +25,7 @@ async function updateDatabase() {
 async function getAllDataFromAdaFruit(){
     var res = []
     res.push(AdafruitAPI.AdafruitGetAutoFanData())
-    res.push(AdafruitAPI.AdafruitGetAutoLedData())
+    res.push(AdafruitAPI.AdafruitGetAutoBulbData())
     res.push(AdafruitAPI.AdafruitGetBulbData())
     res.push(AdafruitAPI.AdafruitGetDHT11SensorData())
     res.push(AdafruitAPI.AdafruitGetFanData())
@@ -62,4 +62,5 @@ function newDevice(time, name = "device", id = 0, last_value = 0, isOn = false, 
 
 module.exports = {
     updateDatabase,
+    getAllDataFromAdaFruit,
 }

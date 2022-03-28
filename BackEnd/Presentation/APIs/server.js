@@ -48,7 +48,7 @@ const bulbID = 1;
 
 
 // Login
-app.post("/login", function (req, res) {
+app.get("/login", function (req, res) {
   //Truyen vao thong tin dang nhap
   login.authentication(req, res);
 });
@@ -61,6 +61,11 @@ app.post("/logout", function (req, res) {
 
 
 // Update device
+// GUI TOI MỘT OBJECT CHỨA TOÀN BỘ THÔNG TIN CỦA FAN
+// obj = {
+//   isOn : false,
+//   isAuto : false,
+// }
 app.post("/fan", function (req, res) {
   fan.updateState(req, res);
 });
@@ -108,10 +113,12 @@ app.listen(
 // CHAY DOAN LENH NAY TREN MOT THREAD MOI
 const { Worker } = require('worker_threads');
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
+const systemInit = require('../../Domain/System/InitData/InitData')
 
 var minutes = 5, the_interval = minutes * 60 * 1000;
 
 AdafruitController.updateDatabase()
+// systemInit()
 
 setInterval(async function() {
   handleNewData()
