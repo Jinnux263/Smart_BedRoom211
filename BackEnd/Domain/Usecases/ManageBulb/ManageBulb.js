@@ -15,6 +15,7 @@ async function updateState(req, res, id = 1) {
     query = queries.bulb_updateState()
     results = await database.makeQuery(query);
     console.log("Bulb: updateState");
+    res.status(200).send(results)
 };
 
 async function turnOffAuto(req, res, id = 1) {

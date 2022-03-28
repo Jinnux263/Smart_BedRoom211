@@ -21,7 +21,7 @@ const PORT = 8000;
 // Hien thuc cua tung API o trong thu muc Usecase
 
 app.get("/", function (req, res) {
-  res.send("API is running...");
+  res.status(200).send("API is running...");
 });
 
 const fanID = 0;
@@ -90,7 +90,7 @@ app.listen(
 const { Worker } = require('worker_threads');
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
 
-var minutes = 1, the_interval = minutes * 60 * 1000;
+var minutes = 5, the_interval = minutes * 60 * 1000;
 
 AdafruitController.updateDatabase()
 

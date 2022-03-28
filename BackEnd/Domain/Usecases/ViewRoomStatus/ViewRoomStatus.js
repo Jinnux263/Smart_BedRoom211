@@ -6,7 +6,7 @@ async function getInformation(req, res) {
     id = 0;
     query = queries.room_getInformation()
     results = await database.makeQuery(query);
-    res.send(results)
+    res.status(200).send(results)
     console.log("Room: getInformation");
 };
 

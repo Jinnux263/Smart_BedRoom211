@@ -18,7 +18,7 @@ async function makeQuery(query = "") {
         const rows = await connection.query(query);
         return rows[0];
     } catch (err) {
-        console.log('ERROR => ' + err);
+        console.log('DATABASE_ERROR => ' + err);
         return err;
     }
 }
@@ -28,7 +28,7 @@ async function makeUpdateQuery(query = "") {
         const rows = await connection.query(query);
         return rows[0];
     } catch (err) {
-        console.log('ERROR => ' + err);
+        console.log('DATABASE_ERROR => ' + err);
         return err;
     }
 }
@@ -38,7 +38,7 @@ async function makeSelectQuery(query = "") {
         const rows = await connection.query(query);
         return rows[0];
     } catch (err) {
-        console.log('ERROR => ' + err);
+        console.log('DATABASE_ERROR => ' + err);
         return err;
     }
 }
