@@ -1,6 +1,6 @@
 var fan = {
     isOn : false,
-    isAuto : true,
+    isAuto : false,
 
     getInformation: function(req, res, id = 1) {
         query = queries.bulb_getInformation()

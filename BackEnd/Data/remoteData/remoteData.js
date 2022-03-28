@@ -80,6 +80,53 @@ async function AdafruitGetInfraredSensorData () {
     });
 }
 
+async function AdafruitTurnOnAutoBulb (isOn) {
+    value = isOn ? "7" : "6";
+    return axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+    {"value": value}, {
+        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+    })
+    .then(response => console.log(response))
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+async function AdafruitTurnAutoFan (isOn) {
+    value = isOn ? "5" : "4";
+    return axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+    {"value": value}, {
+        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+    })
+    .then(response => console.log(response))
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+async function AdafruitTurnOnBulb (isOn) {
+    value = isOn ? "3" : "2";
+    return axios.post('https://io.adafruit.com/api/feeds/co3109-led/data', 
+    {"value": value}, {
+        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+    })
+    .then(response => console.log(response))
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+async function AdafruitTurnFan (isOn) {
+    value = isOn ? "1" : "0";
+    return axios.post('https://io.adafruit.com/api/feeds/co3109-fan/data', 
+    {"value": value}, {
+        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+    })
+    .then(response => console.log(response))
+    .catch(error => {
+        console.log(error);
+    });
+}
 
 
 module.exports = {
@@ -91,5 +138,9 @@ module.exports = {
     AdafruitGetHumidityData,
     AdafruitGetDHT11SensorData,
     AdafruitGetInfraredSensorData,
-    
+    AdafruitTurnOnAutoBulb,
+    AdafruitTurnAutoFan,
+    AdafruitTurnOnBulb,
+    AdafruitTurnFan,
+
 }
