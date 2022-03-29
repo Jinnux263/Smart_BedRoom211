@@ -49,7 +49,7 @@ const bulbID = 1;
 
 // Login
 app.get("/login", function (req, res) {
-  //Truyen vao thong tin dang nhap
+  //Truyen vao thong tin dang nhap, usẻname voi password
   login.authentication(req, res);
 });
 
@@ -61,7 +61,7 @@ app.post("/logout", function (req, res) {
 
 
 // Update device
-// GUI TOI MỘT OBJECT CHỨA TOÀN BỘ THÔNG TIN CỦA FAN
+// GUI TOI MỘT OBJECT CHỨA TOÀN BỘ THÔNG TIN CỦA FAN, dung khi co thao tac doi voi den va quat
 // obj = {
 //   isOn : false,
 //   isAuto : false,
@@ -86,6 +86,7 @@ app.get("/bulb", function (req, res) {
 
 
 // Get data history
+// Lay lich su thiet bi tai man hinh lay full
 app.get("/fan/history", function (req, res) {
   history.getHistory(req, res, fanID);
 });
@@ -95,7 +96,7 @@ app.get("/bulb/history", function (req, res) {
 });
 
 
-// ViewRoomStatus
+// Lay thong tin ca phong, gom humidity, nhiet do va do am, vi the neu muon hien thi man hih thong tin ca phong can ket hop thong tin den va quat nua
 app.get("/room", function (req, res) {
   room.getInformation(req, res);
 });
