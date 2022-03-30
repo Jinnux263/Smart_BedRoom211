@@ -96,7 +96,7 @@ app.get("/bulb/history", function (req, res) {
 });
 
 
-// Lay thong tin ca phong, gom humidity, nhiet do va do am, vi the neu muon hien thi man hih thong tin ca phong can ket hop thong tin den va quat nua
+// Lay thong tin ca phong, gom anh sang, nhiet do va do am, vi the neu muon hien thi man hinh thong tin ca phong can ket hop thong tin den va quat nua
 app.get("/room", function (req, res) {
   room.getInformation(req, res);
 });

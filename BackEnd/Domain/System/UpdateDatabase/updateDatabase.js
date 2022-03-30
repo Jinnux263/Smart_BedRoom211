@@ -8,18 +8,17 @@ async function updateDatabase() {
     
     
     var current = new Date();
-    timeinput = `${current.getFullYear()}-${current.getMonth()}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
+    timeinput = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
 
 
     const objFan = newDevice(timeinput, "fan02", 1, 0 )
     const objBulb = newDevice(timeinput, "light02", 1, 0 )
     var objRoom = newRoom(timeinput)
 
-
-    str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${timeinput}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
+    str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
     str2 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objBulb.name}', '${objBulb.time}', ${objBulb.last_value}, ${objBulb.isOn});`
     str3 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objFan.name}', '${objFan.time}', ${objFan.last_value}, ${objFan.isOn});`
-    
+
     database.makeUpdateQuery(str1)
     database.makeUpdateQuery(str2)
     database.makeUpdateQuery(str3)
