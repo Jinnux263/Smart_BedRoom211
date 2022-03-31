@@ -16,9 +16,10 @@ async function getHistory(req, res, id) {
     // console.log(query)
     try {
         results = await database.makeQuery(query)
-        res.status(200).send(results)
+        res.status(200).send(results[0])
     } catch (err) {
-        console.log('ERROR => ' + err);
+        // console.log('ERROR => ' + err);
+        console.log('ERROR => ' + "getHistory");
         res.send(err)
     }
 };
