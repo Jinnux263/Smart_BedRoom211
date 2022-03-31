@@ -6,6 +6,8 @@ const history = require('../../Domain/Usecases/GetDataHistory/GetDataHistory');
 const login = require('../../Domain/Usecases/Login/Login');
 const logout = require('../../Domain/Usecases/Logout/Logout');
 const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
+var bodyParser = require('body-parser')
+
 
 // const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
 // const fan = require('../../Domain/Usecases/ManageFan/Test_ManageFan');
@@ -16,6 +18,12 @@ const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
 
 const app = express();
 const PORT = 8000;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // DANH SACH CAC API CO THE SU DUNG TU FRONTEND
 // Hien thuc cua tung API o trong thu muc Usecase
@@ -43,18 +51,19 @@ app.get("/", function (req, res) {
   res.status(200).send("API is running...");
 });
 
-const fanID = 0;
-const bulbID = 1;
+const fanID = 0
+const bulbID = 1
+const roomID = 2
 
 
-// Login
+// Login, luon tra ve true
 app.get("/login", function (req, res) {
   //Truyen vao thong tin dang nhap, usẻname voi password
   login.authentication(req, res);
 });
 
 
-// Logout
+// Logout, hien khong lam gi ca
 app.post("/logout", function (req, res) {
   logout.logout(req, res);
 });
@@ -66,27 +75,36 @@ app.post("/logout", function (req, res) {
 //   isOn : false,
 //   isAuto : false,
 // }
+// --> ok
 app.post("/fan", function (req, res) {
   fan.updateState(req, res);
 });
 
+// --> ok
 app.post("/bulb", function (req, res) {
   bulb.updateState(req, res);
 });
 
 
-// Get device information
+
+// Get device information --> ok
 app.get("/fan", function (req, res) {
   fan.getInformation(req, res);
 });
-
+// --> ok
 app.get("/bulb", function (req, res) {
   bulb.getInformation(req, res);
 });
 
+// Lay thong tin ca phong, gom anh sang, nhiet do va do am, vi the neu muon hien thi man hinh thong tin ca phong can ket hop thong tin den va quat nua --> ok
+app.get("/room", function (req, res) {
+  room.getInformation(req, res);
+});
+
+
 
 // Get data history
-// Lay lich su thiet bi tai man hinh lay full
+// Lay lich su thiet bi tai man hinh lay full, dang doi Database cung cap cac ham, hien chua chay duoc
 app.get("/fan/history", function (req, res) {
   history.getHistory(req, res, fanID);
 });
@@ -95,11 +113,10 @@ app.get("/bulb/history", function (req, res) {
   history.getHistory(req, res, bulbID);
 });
 
-
-// Lay thong tin ca phong, gom anh sang, nhiet do va do am, vi the neu muon hien thi man hinh thong tin ca phong can ket hop thong tin den va quat nua
-app.get("/room", function (req, res) {
-  room.getInformation(req, res);
+app.get("/room/history", function (req, res) {
+  history.getHistory(req, res, roomID);
 });
+
 
 
 app.listen(
