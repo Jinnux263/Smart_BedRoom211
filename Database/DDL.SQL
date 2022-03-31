@@ -1,9 +1,10 @@
---  File dinh nghia Database
+-- File dinh nghia database
+
 DROP DATABASE IF EXISTS DoAn;
 CREATE DATABASE DoAn;
 USE DoAn;
 
-/*--------------CREAT TABLE--------------*/
+/*--------------CREATE TABLE--------------*/
 
 CREATE TABLE User_s
 (
@@ -24,11 +25,11 @@ CREATE TABLE Room
 CREATE TABLE Room_Data
 (
 	roomID VARCHAR(10),
-	time DATETIME,
-	temperature Float(10),
-	brightness Float(10),
-	humidity Float(10),
-	isUse BIT,
+	time DATETIME(3),
+	temperature FLOAT,
+	brightness FLOAT,
+	humidity FLOAT,
+	isUse BOOLEAN,
 
 	PRIMARY KEY(roomID, time),
 	FOREIGN KEY(roomID) REFERENCES Room(roomID)
@@ -48,9 +49,9 @@ CREATE TABLE Device_Data
 (
 	roomID VARCHAR(10),
 	deviceID VARCHAR(10),
-	time DATETIME,
-	status BIT,
-	isAuto BIT,
+	time DATETIME(3),
+	status BOOLEAN,
+	isAuto BOOLEAN,
 
 	PRIMARY KEY(roomID, deviceID, time),
 	FOREIGN KEY(roomID, deviceID) REFERENCES Device(roomID, deviceID)
@@ -58,93 +59,80 @@ CREATE TABLE Device_Data
 
 /*--------------CREAT PROCEDURE--------------*/
 
-GO
-create proc Check_user
-@user_name Char(10), @pass_word varchar(10)
-as
-begin
-	SELECT CASE WHEN EXISTS (
-    SELECT *
-    FROM [User_s]
-    WHERE Username = @user_name and Password = @pass_word
-)
-THEN CAST(1 AS BIT)
-ELSE CAST(0 AS BIT) END
-end
+DELIMITER //
+create procedure Check_user(p_user_name Char(10), p_pass_word varchar(10))
 
--- exec dbo.Check_user @user_name = 'user1', @pass_word = 'password01'
+BEGIN
+	if exists (select * from User_s where User_s.Username = p_user_name and User_s.Password = p_pass_word)
+    then select 1; 
+    else select 0;
+    end if;
+END; //
+DELIMITER ;
+call Check_user('admin', 'admin');
 
-----------------------------------------------------
+-- --------------------------------------
 
-GO
-create proc get_data_of_fan
-@room_id char(10)
-as
+delimiter //
+create procedure get_data_of_fan (p_room_id char(10))
 begin
 	select * from Device_Data
-	where deviceID like 'fan%' and (Device_Data.roomID = @room_id)
-end
+	where deviceID like 'fan%' and (Device_Data.roomID = p_room_id)
+    order by Device_Data.time DESC;
+end; //
+delimiter ;
+call get_data_of_fan('room12');
 
--- exec dbo.get_data_of_fan @room_id = 'room12'
-
-----------------------------------------------------
-
-GO
-create proc get_data_of_bulb
-@room_id char(10)
-as
+-- --------------------------------------
+delimiter //
+create procedure get_data_of_bulb (p_room_id char(10))
 begin
+	-- SQLINES LICENSE FOR EVALUATION USE ONLY
 	select * from Device_Data
-	where deviceID like 'bulb%' and (Device_Data.roomID = @room_id)
-end
+	where deviceID like 'bulb%' and (Device_Data.roomID = p_room_id)
+    order by Device_Data.time DESC;
+end; //
+delimiter ;
+call get_data_of_bulb('room12');
 
--- exec dbo.get_data_of_bulb @room_id = 'room11'
-
------------------------------------------------------
-
-GO
-create proc get_data_of_room
-@room_id char(10)
-as
+-- --------------------------------------
+delimiter //
+create procedure get_data_of_room (p_room_id char(10))
 begin
 	select * from Room_Data
-	where Room_Data.roomID = @room_id
-end
+	where Room_Data.roomID = p_room_id
+    order by Room_Data.time DESC;
+end; //
+delimiter ;
+call get_data_of_room('room12');
 
--- exec get_data_of_room @room_id = 'room11'
+-- --------------------------------------
 
------------------------------------------------------
-
-GO
-CREATE PROCEDURE Delete_Data_Of_Device
-AS
+DELIMITER //
+CREATE PROCEDURE Delete_Data_Of_Device()
 BEGIN
-	WHILE 1=1
-	BEGIN
-		WAITFOR TIME '23:00'
-		BEGIN
-			DELETE FROM DEVICE_DATA
-			WHERE DATEDIFF(DAY, Device_Data.time, GETDATE()) >= 7
-		END
-	END
-END
+	DELETE FROM DEVICE_DATA
+	WHERE TIMESTAMPDIFF(DAY, Device_Data.time, NOW(3)) >= 7;
+END; //
+DELIMITER ;
 
--- exec Delete_Data_Of_Device
+-- ----------------------------------------------
 
------------------------------------------------------
-
-GO
-CREATE PROCEDURE Delete_Data_Of_Room
-AS
+DELIMITER //
+CREATE PROCEDURE Delete_Data_Of_Room()
 BEGIN
-	WHILE 1=1
-	BEGIN
-		WAITFOR TIME '23:00'
-		BEGIN
-			DELETE FROM Room_Data
-			WHERE DATEDIFF(DAY, Room_Data.time, GETDATE()) >= 7
-		END
-	END
-END
+	DELETE FROM Room_Data
+	WHERE TIMESTAMPDIFF(DAY, Room_Data.time, NOW(3)) >= 7;
+END; //
+DELIMITER ;
 
--- exec Delete_Data_Of_Room
+-- ----------------------------------------------
+set global event_scheduler = ON;
+
+create event delete_data_of_devices
+	   on schedule every 12 hour
+       do call Delete_Data_Of_Device();
+
+create event delete_data_of_rooms
+	   on schedule every 12 hour
+       do call Delete_Data_Of_Room();
