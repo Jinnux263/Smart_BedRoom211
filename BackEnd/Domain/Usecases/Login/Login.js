@@ -6,7 +6,8 @@ async function authentication(req, res) {
     //check voi user thay vi infor de dam bao tinh flexible
     infor = req.body
 
-    query = queries.authentication()
+    query = queries.authentication(infor.username, infor.password)
+    // query = queries.authentication()
     results = await database.makeQuery(query);
 
 

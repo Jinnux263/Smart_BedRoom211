@@ -1,5 +1,3 @@
-// const database = require('../../../Data/dataSource/databaseConnect')
-// const queries = require('../../../Data/dataSource/queries')
 const AdafruitAPI = require('../../../Data/remoteData/remoteData')
 
 
@@ -17,19 +15,27 @@ async function updateState(req, res) {
     [isOn, isAuto] = await Promise.all([AdafruitAPI.AdafruitGetFanData(), AdafruitAPI.AdafruitGetAutoFanData()])
 
     obj = {
-        isOn : false !== isOn,
-        isAuto : false !== isAuto,
+        isOn : req.body.isOn !== false,
+        isAuto : req.body.isAuto !== false,
     }
-    
-    if (obj.isOn !== isOn) {
-        AdafruitAPI.AdafruitTurnAutoBulb(obj.isAuto)
-        AdafruitAPI.AdafruitTurnFan(obj.isOn)
+    if (isAuto) {
+        if (obj.isOn !== isOn) {
+            AdafruitAPI.AdafruitTurnAutoFan(false)
+            AdafruitAPI.AdafruitTurnFan(obj.isOn)
+        } else if (obj.isAuto !== isAuto) {
+            AdafruitAPI.AdafruitTurnAutoFan(obj.isAuto)
+        }
+    } else {
+        if (obj.isOn !== isOn) {
+            AdafruitAPI.AdafruitTurnFan(obj.isOn)
+        }
+
+        if (obj.isAuto) {
+            AdafruitAPI.AdafruitTurnAutoFan(obj.isAuto)
+        }
+        
     }
 
-    if (obj.isAuto !== isAuto) {
-        AdafruitAPI.AdafruitTurnAutoFan(obj.isAuto)
-    }
-    
     res.status(200).send("Update state success!")
 };
 
