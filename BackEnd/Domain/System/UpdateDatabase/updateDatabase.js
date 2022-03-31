@@ -12,7 +12,7 @@ async function updateDatabase() {
 
 
     const objFan = newDevice(timeinput, "fan02", 1, 0 )
-    const objBulb = newDevice(timeinput, "light02", 1, 0 )
+    const objBulb = newDevice(timeinput, "bulb02", 1, 0 )
     var objRoom = newRoom(timeinput)
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`

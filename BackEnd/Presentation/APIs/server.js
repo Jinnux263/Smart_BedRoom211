@@ -51,9 +51,11 @@ app.get("/", function (req, res) {
   res.status(200).send("API is running...");
 });
 
-const fanID = 0
-const bulbID = 1
-const roomID = 2
+// const fanID = 'fan02'
+// const bulbID = 'light02'
+const fanID = 'fan02'
+const bulbID = 'light02'
+const roomID = 'room12'
 
 
 // Login, luon tra ve true

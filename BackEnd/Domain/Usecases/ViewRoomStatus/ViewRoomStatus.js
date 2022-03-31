@@ -14,7 +14,7 @@ async function getInformation(req, res) {
         res.status(200).send(results)
 
     } catch (err) {
-        console.log('ERROR => ' + err);
+        console.log('ERROR => ' + "err");
         res.send(err)
     }
 };
