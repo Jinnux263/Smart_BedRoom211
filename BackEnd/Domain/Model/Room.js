@@ -5,6 +5,7 @@ var room = {
     temperature: 25,
     humid: 0,
     brightness: 0,
+    hasHuman: false,
 }
 
 module.exports = room

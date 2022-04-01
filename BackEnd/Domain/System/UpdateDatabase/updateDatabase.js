@@ -1,18 +1,20 @@
 const AdafruitAPI = require('../../../Data/remoteData/remoteData')
 const database = require('../../../Data/dataSource/databaseConnect')
-const queries = require('../../../Data/dataSource/queries')
+const local_room = require('../../Model/Room')
+const local_bulb = require('../../Model/Bulb')
+const local_fan = require('../../Model/Fan')
 
 async function updateDatabase() {
 
     var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await getAllDataFromAdaFruit()
-    
-    
+
+
     var current = new Date();
     timeinput = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
 
 
-    const objFan = newDevice(timeinput, "fan02", 1, 0 )
-    const objBulb = newDevice(timeinput, "bulb02", 1, 0 )
+    const objFan = newDevice(timeinput, "fan02", 1, 0)
+    const objBulb = newDevice(timeinput, "bulb02", 1, 0)
     var objRoom = newRoom(timeinput)
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
@@ -24,7 +26,7 @@ async function updateDatabase() {
     database.makeUpdateQuery(str3)
 }
 
-async function getAllDataFromAdaFruit(){
+async function getAllDataFromAdaFruit() {
     var res = []
     res.push(AdafruitAPI.AdafruitGetAutoFanData())
     res.push(AdafruitAPI.AdafruitGetAutoBulbData())
@@ -39,26 +41,26 @@ async function getAllDataFromAdaFruit(){
     return output
 }
 
-function newRoom(time, id = 'room12', name = "bedroom", temperature = 25, brightness = 100, humidity = 50, isUsed = false){
+function newRoom(time, id = 'room12', name = "bedroom", temperature = 25, brightness = 100, humidity = 50, isUsed = false) {
     return {
-        id : id,
-        name : name,
-        temperature : temperature,
-        brightness : brightness,
-        humidity : humidity,
-        time : time,
+        id: id,
+        name: name,
+        temperature: temperature,
+        brightness: brightness,
+        humidity: humidity,
+        time: time,
         isUsed: isUsed,
     }
 }
 
-function newDevice(time, name = "device", id = 0, last_value = 0, isOn = false, isAuto = false){
+function newDevice(time, name = "device", id = 0, last_value = 0, isOn = false, isAuto = false) {
     return {
-        id : id,
-        name : name,
-        isOn : true,
-        isAuto : false,
-        last_value : last_value,
-        time : time,
+        id: id,
+        name: name,
+        isOn: true,
+        isAuto: false,
+        last_value: last_value,
+        time: time,
     }
 }
 

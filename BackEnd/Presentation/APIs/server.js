@@ -7,6 +7,9 @@ const login = require('../../Domain/Usecases/Login/Login');
 const logout = require('../../Domain/Usecases/Logout/Logout');
 const room = require('../../Domain/Usecases/ViewRoomStatus/ViewRoomStatus');
 var bodyParser = require('body-parser')
+var local_room = require('../../Domain/Model/Room')
+var local_bulb = require('../../Domain/Model/Bulb')
+var local_fan = require('../../Domain/Model/Fan')
 
 
 // const bulb = require('../../Domain/Usecases/ManageBulb/Test_ManageBulb');
@@ -119,6 +122,29 @@ app.get("/room/history", function (req, res) {
   history.getHistory(req, res, roomID);
 });
 
+app.get("/system/ischanged", async function (req, res) {
+  try {
+    var results = "done"
+    var [autoFan, autoLed, bulb, DHT11, fan, humidity, infraredSencor, lightSensor] = await AdafruitController.getAllDataFromAdaFruit()
+    if (autoFan != local_fan.isAuto || autoLed != local_bulb.isAuto || local_bulb.isOn != bulb || local_fan.isOn != fan || humidity != local_room.humid || lightSensor != local_room.brightness || local_room.temperature != DHT11 || local_room.hasHuman != infraredSencor) {
+        local_fan.isAuto = autoFan
+        local_bulb.isAuto = autoLed
+        local_fan.isOn = fan
+        local_bulb.isOn = bulb
+        local_room.hasHuman = infraredSencor
+        local_room.humid = humidity
+        local_room.brightness = lightSensor
+        local_room.temperature = DHT11
+        results = true;
+    } else results = false;
+    res.status(200).send(results)
+} catch (err) {
+    console.log('ERROR => ' + err);
+    // console.log('ERROR => ' + "check change failed");
+    res.send(err)
+}
+});
+
 
 
 app.listen(
@@ -143,6 +169,7 @@ setInterval(async function() {
   console.log("Start update Database...");
   AdafruitController.updateDatabase()
 }, the_interval);
+
 
 // function handleNewData (workerData) {
 //   return new Promise((resolve, reject) => {
