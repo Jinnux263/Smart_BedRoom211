@@ -184,138 +184,137 @@ export default function MainMenu() {
     })
     .catch((err) => console.log(err));
   }, []);
-
+  var today = new Date();
+  var hour = today.getHours();
+  var minute = today.getMinutes();
+  if (today.getHours() < 10) hour = "0" + hour;
+  if (today.getMinutes() < 10) minute = "0" + minute;
+  var displayTime = hour + ':' + minute;
   return (
       <div>
+        <div className="container-fluid">
         <div className='row' style={{marginTop: "20px"}}>
-            <div className='col-md-3'><h3>18:00</h3></div>
+            <div className='col-md-3'><h1>{displayTime}</h1></div>
             <div className='col-md-6'>
             </div>
             <div className='col-md-3'>
-                <button className='btn btn-success'>Login</button>
+            <Link to="/login"><button type="button" className="btn mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Login</button></Link>
+            
             </div>
         </div>
         <div className='row'>
-            <div className='col-md-12' style={{marginTop: "20px"}}>
+            <div className='col-md-12' style={{marginTop: "30px", marginBottom:"30px"}}>
                 <h1>BEDROOM CONTROL CENTER</h1>
             </div>
         </div>
-        <div className='row' style={{backgroundColor: "pink", marginTop: "100px"}}>
-            <div className='col-md-4'>
-                <div style={{height: "200px", margin: "40px", backgroundColor: "green"}}>
-                    <div className='row' style={{marginTop: "40px"}}>
-                        <div className='col-md-7' style={{textAlign: "right"}}>
-                            <h1>Fan</h1>
+        </div>
+        <div className='container-fluid row top' style={{ marginTop: "100px", height:"37rem"}}>
+        <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+					<div class="row">
+						<h1 class="col-md-10 m-b-20">Fan</h1>
+                        <div className='col-md-2'style={{marginTop:"0.5rem"}}>
+                            <Link to="/device-information" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                         </div>
-                        <div className='col-md-2'></div>
-                        <div className='col-md-3' style={{textAlign: "left"}}>
-                            <Link to="/device-information" style={{color: "black"}}><AiOutlineInfoCircle size={50}/></Link>
-                        </div>
-                    </div>
-                    
-                    <div style={{margin: "20px"}}>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <h4>Auto</h4>
-                            </div>
-                            <div className='col-md-6'>
+					  </div>
+                    <div class="row" style={{marginTop:"1rem"}}>
+						<div class='col-md-6'>
+							<h4>Auto</h4>
+						</div>
+						<div class='col-md-6'>
                             <label className="switch">
                             <input id="autoFan" type="checkbox" onClick={() => onAutoSwitchFan()}/>
                             <span className="slider round"></span>
                             </label>
-                            </div>
-                        </div>
-                        <br></br>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <h4>Fan</h4>
-                            </div>
-                            <div className='col-md-6'>
+						</div>
+					</div>
+                    <div class="row"style={{ marginTop: "1rem"}}>
+						<div class='col-md-6'>
+							<h4>Fan</h4>
+						</div>
+						<div class='col-md-6'>
                             <label className="switch">
                             <input id="fan" type="checkbox" onClick={() => onSwitchFan()}/>
                             <span className="slider round"></span>
                             </label>
-                            </div>
-                        </div>
-                    </div>
+						</div>
+					</div>
                 </div>
             </div>
-            <div className='col-md-4'>
-                <div style={{height: "200px", margin: "40px", backgroundColor: "green"}}>
-                    <div className='row' style={{marginTop: "40px"}}>
-                        <div className='col-md-7' style={{textAlign: "right"}}>
-                            <h1>Led</h1>
+        </div>
+        <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+					<div class="row">
+						<h1 class="col-md-10 m-b-20">Led</h1>
+                        <div className='col-md-2'style={{marginTop:"0.5rem"}}>
+                            <Link to="/device-information" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                         </div>
-                        <div className='col-md-2'></div>
-                        <div className='col-md-3' style={{textAlign: "left"}}>
-                            <Link to="/device-information" style={{color: "black"}}><AiOutlineInfoCircle size={50}/></Link>
-                        </div>
-                    </div>
-                    <div style={{margin: "20px"}}>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <h4>Auto</h4>
-                            </div>
-                            <div className='col-md-6'>
+					  </div>
+                    <div class="row" style={{marginTop:"1rem"}}>
+						<div class='col-md-6'>
+							<h4>Auto</h4>
+						</div>
+						<div class='col-md-6'>
                             <label className="switch">
                             <input id="autoLed" type="checkbox" onClick={() => onAutoSwitchLed()}/>
                             <span className="slider round"></span>
                             </label>
-                            </div>
-                        </div>
-                        <br></br>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <h4>Led</h4>
-                            </div>
-                            <div className='col-md-6'>
+						</div>
+					</div>
+                    <div class="row"style={{ marginTop: "1rem"}}>
+						<div class='col-md-6'>
+							<h4>Led</h4>
+						</div>
+						<div class='col-md-6'>
                             <label className="switch">
                             <input id="led" type="checkbox" onClick={() => onSwitchLed()}/>
                             <span className="slider round"></span>
                             </label>
-                            </div>
-                        </div>
-                    </div>
-                    
+						</div>
+					</div>
                 </div>
             </div>
-            <div className='col-md-4'>
-                <div style={{height: "200px", margin: "40px", backgroundColor: "green"}}>
-                    <br></br>
-                    <div className='row'>
+        </div>
+        <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                <div className='row'>
                         <div className='col-md-4'>
                             <BsFillPeopleFill size={35}/>
                         </div>
-                        <div className='col-md-1'>
+                        <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
                             <h4>{isUsed}</h4>
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col-md-4'>
+                        <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
                             <TiWeatherSunny size={35}/>
                         </div>
-                        <div className='col-md-1'>
+                        <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
                             <h4>{brightness}</h4>
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col-md-4'>
+                        <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
                             <WiHumidity size={35}/>
                         </div>
-                        <div className='col-md-1'>
+                        <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
                             <h4>{humidity}</h4>
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col-md-4'>
+                        <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
                             <RiTempHotLine size={35}/>
                         </div>
-                        <div className='col-md-1'>
+                        <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
                             <h4>{temperature}</h4>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
       </div>
   )

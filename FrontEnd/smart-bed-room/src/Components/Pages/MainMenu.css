@@ -1,3 +1,20 @@
+.container-fluid {
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight:bolder;
+}
+.top {
+    background-color: #f3f3f3;
+}
+.btn {
+    border-color: #31ff76;
+    border-width: 2px;
+    color: #01da13;
+}
+.btn:hover {
+    background: linear-gradient(45deg,#31ff76,#96fb9f);
+    border-color: #31ff76;
+    color: rgb(0, 0, 0);
+}
 .switch {
     position: relative;
     display: inline-block;
@@ -57,3 +74,97 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+.order-card {
+    color: #fff;
+  }
+  
+  .bg-c-green {
+    background: linear-gradient(45deg,#31ff76,#96fb9f);
+  }
+  
+  
+  
+  .card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card .card-block {
+    padding: 25px;
+  }
+  
+  .order-card i {
+    font-size: 26px;
+  }
+  
+  .f-left {
+    float: left;
+  }
+  
+  .f-right {
+    float: right;
+  }
+  
+  .bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+  }
+  
+  .bg-c-green {
+    background: linear-gradient(45deg,#3aff8c,#59e0c5);
+  }
+  
+  .bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+  }
+  
+  .bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+  }
+  
+  
+  .card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card .card-block {
+    padding: 25px;
+  }
+  
+  .order-card i {
+    font-size: 26px;
+  }
+  
+  .f-left {
+    float: left;
+  }
+  
+  .f-right {
+    float: right;
+  }
+  a {
+      margin: 0px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+  
+  a:focus {
+      outline: none !important;
+  }
+  
+  a:hover {
+      text-decoration: none;
+  }
+  
