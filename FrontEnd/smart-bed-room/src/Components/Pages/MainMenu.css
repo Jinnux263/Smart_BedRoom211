@@ -2,18 +2,20 @@
     font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight:bolder;
 }
+.container-fluid .btn-outline-success{
+  background-color: #ffffff;
+  border-color: #31ff76;
+  border-width: 2px;
+  color: #01da13;
+  border-radius: 4px;
+}
+.container-fluid .btn-outline-success:hover {
+  background: linear-gradient(45deg,#31ff76,#96fb9f);
+  border-color: #31ff76;
+  color: rgb(246, 246, 246);
+}
 .top {
-    background-color: #f3f3f3;
-}
-.btn {
-    border-color: #31ff76;
-    border-width: 2px;
-    color: #01da13;
-}
-.btn:hover {
-    background: linear-gradient(45deg,#31ff76,#96fb9f);
-    border-color: #31ff76;
-    color: rgb(0, 0, 0);
+  background-color: #f3f3f3;
 }
 .switch {
     position: relative;

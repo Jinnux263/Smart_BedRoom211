@@ -198,7 +198,7 @@ export default function MainMenu() {
             <div className='col-md-6'>
             </div>
             <div className='col-md-3'>
-            <Link to="/login"><button type="button" className="btn mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Login</button></Link>
+            <Link to="/login"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Login</button></Link>
             
             </div>
         </div>
