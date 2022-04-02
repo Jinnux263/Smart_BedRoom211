@@ -39,6 +39,13 @@ export default function MainMenu() {
           setAutoFan(4);
       }
   };
+  const onPreSwitchFan = () => {
+    axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+    {"value": "4"}, {
+        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+    }).then(response => console.log(response));
+    setAutoFan(4);
+  };
   const onAutoSwitchLed = () => {
       if (autoLed == 6) {
           console.log(autoLed + 1);
@@ -56,6 +63,13 @@ export default function MainMenu() {
             }).then(response => console.log(response));
         setAutoLed(6);
       }
+  };
+  const onPreSwitchLed = () => {
+    axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+        {"value": "6"}, {
+            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+        }).then(response => console.log(response));
+    setAutoLed(6);
   };
 
   const onSwitchFan = () => {
@@ -235,7 +249,7 @@ export default function MainMenu() {
 						</div>
 						<div class='col-md-6'>
                             <label className="switch">
-                            <input id="fan" type="checkbox" onClick={() => onSwitchFan()}/>
+                            <input id="fan" type="checkbox" onClick={() => {onSwitchFan(); onPreSwitchFan()}}/>
                             <span className="slider round"></span>
                             </label>
 						</div>
@@ -269,7 +283,7 @@ export default function MainMenu() {
 						</div>
 						<div class='col-md-6'>
                             <label className="switch">
-                            <input id="led" type="checkbox" onClick={() => onSwitchLed()}/>
+                            <input id="led" type="checkbox" onClick={() => {onSwitchLed(); onPreSwitchLed()}}/>
                             <span className="slider round"></span>
                             </label>
 						</div>
