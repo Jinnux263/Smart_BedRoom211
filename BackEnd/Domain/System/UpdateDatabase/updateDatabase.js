@@ -13,9 +13,9 @@ async function updateDatabase() {
     timeinput = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
 
 
-    const objFan = newDevice(timeinput, "fan02", 1, 0)
-    const objBulb = newDevice(timeinput, "bulb02", 1, 0)
-    var objRoom = newRoom(timeinput)
+    const objFan = newDevice(timeinput, "fan02", 1, 0, fan, autoFan)
+    const objBulb = newDevice(timeinput, "bulb02", 1, 0, bulb, autoLed)
+    var objRoom = newRoom(timeinput, 'room12', 'bedroom', DHT11, lightSensor, humidity, infraredSencor)
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
     str2 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objBulb.name}', '${objBulb.time}', ${objBulb.last_value}, ${objBulb.isOn});`
