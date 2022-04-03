@@ -41,13 +41,6 @@ export default function MainMenu() {
           setAutoFan(4);
       }
   };
-  const onPreSwitchFan = () => {
-    axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
-    {"value": "4"}, {
-        headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
-    }).then(response => console.log(response));
-    setAutoFan(4);
-  };
   const onAutoSwitchLed = () => {
       if (autoLed == 6) {
           console.log(autoLed + 1);
@@ -56,7 +49,6 @@ export default function MainMenu() {
                 headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
             }).then(response => console.log(response));
           setAutoLed(7);
-          
       } else {
         console.log(autoLed - 1);
         axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
@@ -66,13 +58,6 @@ export default function MainMenu() {
         setAutoLed(6);
       }
   };
-  const onPreSwitchLed = () => {
-    axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
-        {"value": "6"}, {
-            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
-        }).then(response => console.log(response));
-    setAutoLed(6);
-  };
 
   const onSwitchFan = () => {
     if (fan == 0) {
@@ -81,6 +66,11 @@ export default function MainMenu() {
             {"value": "1"}, {
                 headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
             }).then(response => console.log(response));
+        axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+        {"value": "4"}, {
+            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+        }).then(response => console.log(response));
+        document.getElementById("autoFan").checked = false;
         setFan(1);
     } else {
         console.log(fan - 1);
@@ -88,6 +78,11 @@ export default function MainMenu() {
             {"value": "0"}, {
                 headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
             }).then(response => console.log(response));
+        axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
+        {"value": "4"}, {
+            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+        }).then(response => console.log(response));
+        document.getElementById("autoFan").checked = false;
         setFan(0);
     }
   };
@@ -98,6 +93,11 @@ export default function MainMenu() {
             {"value": "3"}, {
                 headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
             }).then(response => console.log(response));
+        axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+        {"value": "6"}, {
+            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+        }).then(response => console.log(response));
+        document.getElementById("autoLed").checked = false;
         setLed(3);
     } else {
         console.log(led - 1);
@@ -105,6 +105,11 @@ export default function MainMenu() {
             {"value": "2"}, {
                 headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
             }).then(response => console.log(response));
+        axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
+        {"value": "6"}, {
+            headers: {"x-aio-key": "aio_wpGb16uEqxE9Sr3F9tr7C37aOtqs"}
+        }).then(response => console.log(response));
+        document.getElementById("autoLed").checked = false;
         setLed(2);
     }
    };
@@ -261,7 +266,7 @@ export default function MainMenu() {
 						</div>
 						<div class='col-md-6'>
                             <label className="switch">
-                            <input id="fan" type="checkbox" onClick={() => {onSwitchFan(); onPreSwitchFan()}}/>
+                            <input id="fan" type="checkbox" onClick={() => onSwitchFan()}/>
                             <span className="slider round"></span>
                             </label>
 						</div>
@@ -295,7 +300,7 @@ export default function MainMenu() {
 						</div>
 						<div class='col-md-6'>
                             <label className="switch">
-                            <input id="led" type="checkbox" onClick={() => {onSwitchLed(); onPreSwitchLed()}}/>
+                            <input id="led" type="checkbox" onClick={() => onSwitchLed()}/>
                             <span className="slider round"></span>
                             </label>
 						</div>
