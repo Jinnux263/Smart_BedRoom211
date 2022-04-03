@@ -1,0 +1,19 @@
+{
+  "name": "smartbedroom-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node .\\Presentation\\APIs\\server.js",
+    "dev": "nodemon .\\Presentation\\APIs\\server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
