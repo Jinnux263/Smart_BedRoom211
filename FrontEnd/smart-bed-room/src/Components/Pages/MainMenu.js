@@ -21,7 +21,9 @@ export default function MainMenu() {
   const [temperature, setTemperature] = useState(0);
   const [humidity, setHumidity] = useState(0);
   const [isUsed, setIsUsed] = useState(0);
-
+  const [humanDetect, setHumanDetect] = useState("");
+  const [bright, setBright] = useState("");
+	
   const onAutoSwitchFan = () => {
       if (autoFan == 4) {
           console.log(autoFan + 1);
@@ -112,6 +114,11 @@ export default function MainMenu() {
     .then((res) => res = res.json())
     .then((res) => {
         setIsUsed(res.last_value);
+        if (res.last_value == 0) {
+            setHumanDetect("Has people");
+        } else {
+            setHumanDetect("No people");
+        }
         console.log(res.last_value);
     })
     .catch((err) => console.log(err));
@@ -142,6 +149,11 @@ export default function MainMenu() {
     .then((res) => res = res.json())
     .then((res) => {
         setBrightness(res.last_value);
+        if (res.last_value == 1) {
+            setBright("Bright");
+        } else {
+            setBright("Dark");
+        }
         console.log(res.last_value);
     })
     .catch((err) => console.log(err));
@@ -292,14 +304,14 @@ export default function MainMenu() {
             </div>
         </div>
         <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-            <div class="card bg-c-green order-card">
+                        <div class="card bg-c-green order-card">
                 <div class="card-block">
                 <div className='row'>
                         <div className='col-md-4'>
                             <BsFillPeopleFill size={35}/>
                         </div>
                         <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                            <h4>{isUsed}</h4>
+                            <h4>{humanDetect}</h4>
                         </div>
                     </div>
                     <div className='row'>
@@ -307,7 +319,7 @@ export default function MainMenu() {
                             <TiWeatherSunny size={35}/>
                         </div>
                         <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                            <h4>{brightness}</h4>
+                            <h4>{bright}</h4>
                         </div>
                     </div>
                     <div className='row'>
@@ -315,7 +327,7 @@ export default function MainMenu() {
                             <WiHumidity size={35}/>
                         </div>
                         <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                            <h4>{humidity}</h4>
+                            <h4>{humidity}%</h4>
                         </div>
                     </div>
                     <div className='row'>
@@ -323,7 +335,7 @@ export default function MainMenu() {
                             <RiTempHotLine size={35}/>
                         </div>
                         <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                            <h4>{temperature}</h4>
+                            <h4>{temperature}&#8451;</h4>
                         </div>
                     </div>
                 </div>
