@@ -340,7 +340,7 @@ export default function MainMenu() {
                             <RiTempHotLine size={35}/>
                         </div>
                         <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                            <h4>{temperature}&#8451;</h4>
+                            <h4>{temperature}&deg;C</h4>
                         </div>
                     </div>
                 </div>
