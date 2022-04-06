@@ -13,8 +13,8 @@ async function updateDatabase() {
     timeinput = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()} ${current.getHours()}:${current.getMinutes()}`;
 
 
-    const objFan = newDevice(timeinput, "fan02", 1, 0, fan, autoFan)
-    const objBulb = newDevice(timeinput, "bulb02", 1, 0, bulb, autoLed)
+    const objFan = newDevice(timeinput, "fan02", fan, autoFan)
+    const objBulb = newDevice(timeinput, "bulb02", bulb, autoLed)
     var objRoom = newRoom(timeinput, 'room12', 'bedroom', DHT11, lightSensor, humidity, infraredSencor)
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
@@ -53,13 +53,11 @@ function newRoom(time, id = 'room12', name = "bedroom", temperature = 25, bright
     }
 }
 
-function newDevice(time, name = "device", id = 0, last_value = 0, isOn = false, isAuto = false) {
+function newDevice(time, name = "device", isOn = false, isAuto = false) {
     return {
-        id: id,
         name: name,
         isOn: isOn,
         isAuto: isAuto,
-        last_value: last_value,
         time: time,
     }
 }
