@@ -18,8 +18,8 @@ async function updateDatabase() {
     var objRoom = newRoom(timeinput, 'room12', 'bedroom', DHT11, lightSensor, humidity, infraredSencor)
 
     str1 = `INSERT INTO Room_Data VALUES ('${objRoom.id}', '${objRoom.time}', ${objRoom.temperature}, ${objRoom.brightness}, ${objRoom.humidity}, ${objRoom.isUsed});`
-    str2 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objBulb.name}', '${objBulb.time}', ${objBulb.last_value}, ${objBulb.isOn});`
-    str3 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objFan.name}', '${objFan.time}', ${objFan.last_value}, ${objFan.isOn});`
+    str2 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objBulb.name}', '${objBulb.time}', ${objBulb.isOn}, ${objBulb.isAuto});`
+    str3 = `INSERT INTO Device_Data VALUES ('${objRoom.id}', '${objFan.name}', '${objFan.time}', ${objFan.isOn}, ${objFan.isAuto});`
 
     database.makeUpdateQuery(str1)
     database.makeUpdateQuery(str2)
@@ -57,8 +57,8 @@ function newDevice(time, name = "device", id = 0, last_value = 0, isOn = false, 
     return {
         id: id,
         name: name,
-        isOn: true,
-        isAuto: false,
+        isOn: isOn,
+        isAuto: isAuto,
         last_value: last_value,
         time: time,
     }
