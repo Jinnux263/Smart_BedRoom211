@@ -32,8 +32,8 @@ export default function Login() {
     .catch((res, status) => alert(res, status));
   };
 
-  if (state.isLoggedIn) return <Redirect to="/" />
-  else
+  // if (state.isLoggedIn) return <Redirect to="/" />
+  // else
   return (
     <div
     className="login bg-light d-flex align-items-center"

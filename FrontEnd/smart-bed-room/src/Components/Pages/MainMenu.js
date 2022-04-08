@@ -49,7 +49,7 @@ export default function MainMenu() {
     .then((res) => res = res.json())
     .then((res) => {
         setRoomstatus(res.humidity, res.brightness, res.hasHuman, res.temperature);
-        if (res.brightness == 0) {
+        if (res.hasHuman == true) {
             setHumanDetect("Has people");
         } else {
             setHumanDetect("No people");
@@ -69,15 +69,15 @@ export default function MainMenu() {
     .then((res) => res = res.json())
     .then((res) => {
         setFanstatus(res.isOn, res.isAuto);
-        document.getElementById("fan").checked = res.isOn ? true : false;
-        document.getElementById("autoFan").checked = res.isAuto ? true : false;
+        if (res.isOn) document.getElementById("fan").checked = true;
+        if (res.isAuto) document.getElementById("autoFan").checked = true;
         console.log(res);
     })
     .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost/8000/bulb`)
+    fetch('http://localhost/8000/bulb')
     .then((res) => res = res.json())
     .then((res) => {
         setLedstatus(res.isOn, res.isAuto);
@@ -102,17 +102,17 @@ export default function MainMenu() {
             <div className='col-md-6'>
             </div>
             <div className='col-md-3'>
-            {!state.isLoggedIn ? (
+            {/* {!Data.state.isLoggedIn ? (
                 <>
-                {" "}
+                {" "} */}
                 <Link to="/login"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Login</button></Link>
-                </>
+                {/* </>
             ) : (
                 <>
                 {" "}
-                <Link to="/"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}} onClick={clickHandler}>Logout</button></Link>
+                <Link to="/"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Logout</button></Link>
                 </>
-            )}
+            )} */}
             </div>
         </div>
         <div className='row'>
@@ -122,34 +122,34 @@ export default function MainMenu() {
         </div>
         </div>
         <div className='container-fluid row top' style={{ marginTop: "100px", height:"37rem"}}>
-        {!state.isLoggedIn ? (
+        {/* {!Data.state.isLoggedIn ? (
             <>
-            {" "}
-                <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div class="card bg-c-green order-card">
-                    <div class="card-block">
-                        <div class="row">
-                            <h1 class="col-md-10 m-b-20">Fan</h1>
+            {" "} */}
+                <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+                <div className="card bg-c-green order-card">
+                    <div className="card-block">
+                        <div className="row">
+                            <h1 className="col-md-10 m-b-20">Fan</h1>
                             <div className='col-md-2'style={{marginTop:"0.5rem"}}>
                                 <Link to="/device-information" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div class="row" style={{marginTop:"1rem"}}>
-                            <div class='col-md-6'>
+                        <div className="row" style={{marginTop:"1rem"}}>
+                            <div className='col-md-6'>
                                 <h4>Auto</h4>
                             </div>
-                            <div class='col-md-6'>
+                            <div className='col-md-6'>
                                 <label className="switch">
                                 <input id="autoFan" type="checkbox" onClick={() => SwitchAutoFan()}/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div class="row"style={{ marginTop: "1rem"}}>
-                            <div class='col-md-6'>
+                        <div className="row"style={{ marginTop: "1rem"}}>
+                            <div className='col-md-6'>
                                 <h4>Fan</h4>
                             </div>
-                            <div class='col-md-6'>
+                            <div className='col-md-6'>
                                 <label className="switch">
                                 <input id="fan" type="checkbox" onClick={() => SwitchFan()}/>
                                 <span className="slider round"></span>
@@ -159,33 +159,33 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div class="card bg-c-green order-card">
-                    <div class="card-block">
-                        <div class="row">
-                            <h1 class="col-md-10 m-b-20">Led</h1>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+                <div className="card bg-c-green order-card">
+                    <div className="card-block">
+                        <div className="row">
+                            <h1 className="col-md-10 m-b-20">Led</h1>
                             <div className='col-md-2'style={{marginTop:"0.5rem"}}>
                                 <Link to="/device-information" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div class="row" style={{marginTop:"1rem"}}>
-                            <div class='col-md-6'>
+                        <div className="row" style={{marginTop:"1rem"}}>
+                            <div className='col-md-6'>
                                 <h4>Auto</h4>
                             </div>
-                            <div class='col-md-6'>
+                            <div className='col-md-6'>
                                 <label className="switch">
-                                <input id="autoLed" type="checkbox" onClick={() => SwitchLed()}/>
+                                <input id="autoLed" type="checkbox" onClick={() => SwitchAutoLed()}/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div class="row"style={{ marginTop: "1rem"}}>
-                            <div class='col-md-6'>
+                        <div className="row"style={{ marginTop: "1rem"}}>
+                            <div className='col-md-6'>
                                 <h4>Led</h4>
                             </div>
-                            <div class='col-md-6'>
+                            <div className='col-md-6'>
                                 <label className="switch">
-                                <input id="led" type="checkbox" onClick={() => SwitchAutoLed()}/>
+                                <input id="led" type="checkbox" onClick={() => SwitchLed()}/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
@@ -193,9 +193,9 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                            <div class="card bg-c-green order-card">
-                    <div class="card-block">
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+                            <div className="card bg-c-green order-card">
+                    <div className="card-block">
                     <div className='row'>
                             <div className='col-md-4'>
                                 <BsFillPeopleFill size={35}/>
@@ -231,7 +231,7 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            </>
+            {/* </>
         ) : (
             <>
             {" "}
@@ -240,7 +240,7 @@ export default function MainMenu() {
             </div>
             </>
         )
-        }
+        } */}
         </div>
       </div>
   )
