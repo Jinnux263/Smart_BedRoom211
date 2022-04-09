@@ -124,13 +124,13 @@ export default function MainMenu() {
             <div className='col-md-3'>
             {!state.isLogin ? (
                 <>
-                {" "}
+                {" "} 
                 <Link to="/login"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}}>Login</button></Link>
                 </>
             ) : (
                 <>
                 {" "}
-                <Link to="/"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}} onClick={clickHandler}>Logout</button></Link>
+                <Link to="/"><button type="button" className="btn-outline-success mr-md-2 mb-md-0 mb-2 btn-outline-success btn-round" style={{height:"3rem", width:"10rem", fontSize:"20px"}} onClick={()=>clickHandler()}>Logout</button></Link>
                 </>
             )}
             </div>
