@@ -10,9 +10,9 @@ async function authentication(req, res) {
     // query = queries.authentication()
     results = await database.makeQuery(query);
 
-
-    res.status(200).send(true)
-    // res.status(200).send(results)
+    output = results[0][0][0] == 0 ? false : true
+    // console.log(output)
+    res.status(200).send(output)
 };
 
 module.exports = {
