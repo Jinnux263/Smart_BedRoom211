@@ -16,10 +16,9 @@ async function getInformation(req, res) {
 async function updateState(req, res) {
     [isOn, isAuto] = await Promise.all([AdafruitAPI.AdafruitGetBulbData(), AdafruitAPI.AdafruitGetAutoBulbData()])
     obj = {
-        isOn : req.body.isOn !== false,
-        isAuto : req.body.isAuto !== false,
+        isOn : req.body.isOn,
+        isAuto : req.body.isAuto,
     }
-    
     if (isAuto) {
         if (obj.isOn !== isOn) {
             AdafruitAPI.AdafruitTurnAutoBulb(false)

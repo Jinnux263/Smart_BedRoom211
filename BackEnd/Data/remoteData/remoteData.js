@@ -41,7 +41,7 @@ async function AdafruitGetAutoFanData () {
 }
 
 async function AdafruitGetLightSensorData () {
-    return axios.get('https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-fan')
+    return axios.get('https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-light')
     .then(response => {
         return parseInt(response.data.last_value, 10)
     })
@@ -73,7 +73,7 @@ async function AdafruitGetDHT11SensorData () {
 async function AdafruitGetInfraredSensorData () {
     return axios.get('https://io.adafruit.com/api/v2/Nhom_N/feeds/co3109-infrared')
     .then(response => {
-        return response.data.last_value === "1"
+        return response.data.last_value === "0"
     })
     .catch(error => {
         console.log(error);

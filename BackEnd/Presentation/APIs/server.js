@@ -62,8 +62,8 @@ const roomID = 'room12'
 
 
 // Login, luon tra ve true
-app.get("/login", function (req, res) {
-  //Truyen vao thong tin dang nhap, usẻname voi password
+app.post("/login", function (req, res) {
+  //Truyen vao thong tin dang nhap, username voi password
   login.authentication(req, res);
 });
 

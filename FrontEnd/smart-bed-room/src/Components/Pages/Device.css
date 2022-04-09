@@ -224,3 +224,26 @@
   .table100.ver1 .ps__rail-y .ps__thumb-y::before {
     background-color: #cccccc;
   }
+
+  .pageNumber {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+
+  .previousNext {
+    color: black;
+    padding: 8px 10px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+
+  .pageNumberActive {
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+  }
+  

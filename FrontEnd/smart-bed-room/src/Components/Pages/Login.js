@@ -3,19 +3,19 @@ import '../Pages/Login.css'
 import image from '../Images/N_Group.png';
 import { FaHome } from 'react-icons/fa';
 import {
-    Link, Redirect
+    Link, Navigate
 } from 'react-router-dom';
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import axios from "axios";
-import { Data } from '../../Context';
+import { LoginContext } from '../../LoginContext';
 
 const styleLogin = {
     borderRadius: "30px",
     boxShadow: "0px 15px 16.83px 0.17px rgb(0,0,0,0.2)",
   };
 export default function Login() {
-  const [state, setState] = useContext(Data);
+  const {state, setState} = useContext(LoginContext);
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -27,12 +27,12 @@ export default function Login() {
       "http://localhost:8000/login",{...user}
     )
     .then((res) => {
-      setState((prev) => ({...prev, isLoggedIn: true, user: res.data}))
+      if (res.data) setState((prev) => ({...prev, isLogin: true, user: user}));
     })
     .catch((res, status) => alert(res, status));
   };
 
-  if (state.isLoggedIn) return <Redirect to="/" />
+  if (state.isLogin) return <Navigate to="/" />
   else
   return (
     <div
