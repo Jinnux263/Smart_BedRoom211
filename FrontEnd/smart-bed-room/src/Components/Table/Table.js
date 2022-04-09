@@ -29,7 +29,7 @@ export default function Table({data, rowsPerPage}) {
                                 <tbody>
                                     {dat.map((el) => (
                                         <tr key={el.time}>
-                                        <td className="">{el.time.split("T")[0] + " " + el.time.split("T")[1].split(".")[0]}</td>
+                                        <td className="">{(new Date(el.time)).toLocaleString()}</td>
                                         <td className="cell100 column1">{el.status == 1 ? "ON" : "OFF"}</td>
                                         <td className="cell100 column1">{el.isAuto == 1 ? "ON" : "OFF"}</td>
                                         </tr>
