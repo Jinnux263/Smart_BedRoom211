@@ -160,7 +160,7 @@ const { Worker } = require('worker_threads');
 const AdafruitController = require('../../Domain/System/UpdateDatabase/updateDatabase')
 const systemInit = require('../../Domain/System/InitData/InitData')
 
-var minutes = 5, the_interval = minutes * 60 * 1000;
+var minutes = 1, the_interval = minutes * 60 * 1000;
 
 AdafruitController.updateDatabase()
 // systemInit()
