@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import '../Pages/Login.css'
 import image from '../Images/N_Group.png';
 import { FaHome } from 'react-icons/fa';
@@ -21,6 +21,20 @@ export default function Login() {
     username: "",
     password: "",
   });
+  const json = localStorage.getItem("state");
+  const saveAccount = JSON.parse(json);
+  let saveUsername = "";
+  let savePassword = "";
+  let saveIsLogin = false;
+  if (saveAccount) {
+      saveUsername = saveAccount.user.username;
+      savePassword = saveAccount.user.password;
+      saveIsLogin = true;
+  }
+  useEffect(() => {
+    const user = {username: saveUsername, password: savePassword};
+    setState((prev) => ({...prev, isLogin: saveIsLogin, user: user}));
+  }, []);
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post(
@@ -36,7 +50,7 @@ export default function Login() {
     })
     .catch((res, status) => alert(res, status));
   };
-
+  
   if (state.isLogin) return <Navigate to="/" />
   else
   return (
