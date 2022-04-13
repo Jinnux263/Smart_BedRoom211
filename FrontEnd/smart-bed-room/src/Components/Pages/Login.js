@@ -15,19 +15,24 @@ const styleLogin = {
     boxShadow: "0px 15px 16.83px 0.17px rgb(0,0,0,0.2)",
   };
 export default function Login() {
+  
   const {state, setState} = useContext(LoginContext);
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post(
       "http://localhost:8000/login",{...user}
     )
     .then((res) => {
-      if (res.data) setState((prev) => ({...prev, isLogin: true, user: user}));
+      if (res.data) {
+        setState((prev) => ({...prev, isLogin: true, user: user}));
+        const saveAccount = {isLogin: true, user: {username: user.username, password: user.password}};
+        const json = JSON.stringify(saveAccount);
+        localStorage.setItem("state", json);
+      };
     })
     .catch((res, status) => alert(res, status));
   };

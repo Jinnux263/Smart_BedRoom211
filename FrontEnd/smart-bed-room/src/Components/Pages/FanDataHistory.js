@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component, useState, useEffect, useContext } from 'react'
 import Select from 'react-select'
 import '../Pages/Device.css'
 import { FaHome } from 'react-icons/fa';
@@ -8,6 +8,19 @@ import {
 import Table from '../Table/Table';
 
 export default function FanDataHistory() {
+  
+  const json = localStorage.getItem("state");
+  const saveAccount = JSON.parse(json);
+  let saveUsername = "";
+  let savePassword = "";
+  let saveIsLogin = false;
+  if (saveAccount) {
+      saveUsername = saveAccount.user.username;
+      savePassword = saveAccount.user.password;
+      saveIsLogin = true;
+  } else {
+    window.location.href = '/';
+  }
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:8000/fan/history`)
@@ -28,15 +41,15 @@ export default function FanDataHistory() {
           }}
         >
           <FaHome size={30}/>
-        </button>
-        </Link>
-      </div>
-      <div className="row" style={{marginTop:"5rem"}}>
-      <div className="col-lg-8 col-md-7">
-        <p style={{fontSize:"3rem"}}>Fan Data History</p>
-      </div>
-      </div>
-  <Table data={data} rowsPerPage={5}></Table>
+          </button>
+          </Link>
+        </div>
+        <div className="row" style={{marginTop:"5rem"}}>
+        <div className="col-lg-8 col-md-7">
+          <p style={{fontSize:"3rem"}}>Fan Data History</p>
+        </div>
+        </div>
+      <Table data={data} rowsPerPage={5}></Table>
   </div>
   )
 }

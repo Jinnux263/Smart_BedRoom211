@@ -16,6 +16,20 @@ import { LoginContext } from '../../LoginContext';
 export default function MainMenu() {
 
   const {state, setState} = useContext(LoginContext);
+  const json = localStorage.getItem("state");
+  const saveAccount = JSON.parse(json);
+  let saveUsername = "";
+  let savePassword = "";
+  let saveIsLogin = false;
+  if (saveAccount) {
+      saveUsername = saveAccount.user.username;
+      savePassword = saveAccount.user.password;
+      saveIsLogin = true;
+  }
+  useEffect(() => {
+    const user = {username: saveUsername, password: savePassword};
+    setState((prev) => ({...prev, isLogin: saveIsLogin, user: user}));
+  }, []);
   const [humanDetect, setHumanDetect] = useState("");
   const [bright, setBright] = useState("");
   const [ledstatus, setLedstatus] = useState({isOn: false, isAuto: false});
@@ -26,6 +40,7 @@ export default function MainMenu() {
     temperature: 0});
 
   const clickHandler = () => {
+    localStorage.removeItem("state");
     setState({isLogin: false, user: {}});
     axios.post("http://localhost:8000/logout")
     .then((res) => {
