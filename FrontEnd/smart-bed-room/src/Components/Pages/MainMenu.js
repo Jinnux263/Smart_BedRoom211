@@ -199,7 +199,7 @@ export default function MainMenu() {
         {state.isLogin ? (
             <>
             {" "}
-                <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+                <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
@@ -233,7 +233,7 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
@@ -267,7 +267,7 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                     <div className="row">
@@ -315,7 +315,7 @@ export default function MainMenu() {
         ) : (
             <>
             {" "}
-            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
@@ -349,7 +349,7 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
@@ -383,7 +383,7 @@ export default function MainMenu() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
+            <div className="col-md-4 col-xl-4" style={{ marginTop: "40px"}}>
                 <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                     <div className="row">
