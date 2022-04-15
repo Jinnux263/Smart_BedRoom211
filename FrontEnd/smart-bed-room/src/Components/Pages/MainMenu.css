@@ -1,18 +1,30 @@
 .container-fluid {
     font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight:bolder;
+    /* background: linear-gradient(45deg,#31ff76,#96fb9f); */
 }
-.container-fluid .btn-outline-success{
+.header {
+  background: url(https://easetemplate.com/free-website-templates/hike/images/pageheader.jpg)   no-repeat;
+  position: relative;
+  background-size: cover;
+  color: white;
+}
+.container-fluid .row h1.borderround {
+  border-width: 20px;
+  border-color: #252525;
+}
+
+.container-fluid .row .col-md-3 .btn-outline-success{
   background-color: #ffffff;
   border-color: #31ff76;
   border-width: 2px;
-  color: #01da13;
   border-radius: 4px;
+  color: #252525;
 }
-.container-fluid .btn-outline-success:hover {
-  background: linear-gradient(45deg,#31ff76,#96fb9f);
-  border-color: #31ff76;
-  color: rgb(246, 246, 246);
+.container-fluid .row .col-md-3 .btn-outline-success:hover {
+  /* background: linear-gradient(45deg,#31ff76,#96fb9f); */
+  border-color: #ffffff;
+  /* color: #ffffff; */
 }
 .top {
   background-color: #f3f3f3;
