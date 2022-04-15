@@ -321,7 +321,7 @@ export default function MainMenu() {
                         <div className="row">
                             <h1 className="col-md-10 col-sm-9 m-b-20" style={{fontWeight:"500"}}>Fan</h1>
                             <div className='col-md-2 col-sm-3'style={{marginTop:"0.5rem"}}>
-                                <Link to="/fan-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
+                                <Link to="/" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
                         <div className="row" style={{marginTop:"1.4rem"}}>
@@ -355,7 +355,7 @@ export default function MainMenu() {
                         <div className="row">
                             <h1 className="col-md-10 m-b-20" style={{fontWeight:"500"}}>Led</h1>
                             <div className='col-md-2'style={{marginTop:"0.5rem"}}>
-                                <Link to="/led-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
+                                <Link to="/" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
                         <div className="row" style={{marginTop:"1.4rem"}}>
@@ -389,7 +389,7 @@ export default function MainMenu() {
                     <div className="row">
                         <h3 className="col-md-12 col-lg-10 m-b-20" style={{fontWeight:"500", fontSize:"2.3rem"}}>Room data</h3>
                         <div className='col-lg-2 col-md-12'style={{marginTop:"0rem"}}>
-                            <Link to="/room-data-history" style={{color: "white"}}><AiOutlineAreaChart size={30}/></Link>
+                            <Link to="/" style={{color: "white"}}><AiOutlineAreaChart size={30}/></Link>
                         </div>
                     </div>
                         <div className='row' style={{marginTop:"0rem"}}>
