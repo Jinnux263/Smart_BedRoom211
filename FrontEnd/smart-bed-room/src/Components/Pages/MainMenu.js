@@ -195,12 +195,12 @@ export default function MainMenu() {
             </div>
         </div>
         </div>
-        <div className='container-fluid row top' style={{height:"38.05rem"}}>
+        <div className='container-fluid row top' style={{height:"37rem"}}>
         {state.isLogin ? (
             <>
             {" "}
                 <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div className="card bg-c-green order-card" style={{height:"17rem"}}>
+                <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
                             <h1 className="col-md-10 col-sm-9 m-b-20" style={{fontWeight:"500"}}>Fan</h1>
@@ -208,22 +208,22 @@ export default function MainMenu() {
                                 <Link to="/fan-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div className="row" style={{marginTop:"1.2rem"}}>
+                        <div className="row" style={{marginTop:"1.4rem"}}>
                             <div className='col-md-6'>
-                                <h2>Auto</h2>
+                                <h1>Auto</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.7rem"}}>
                                 <label className="switch">
                                 <input id="autoFan" type="checkbox" onClick={() => SwitchAutoFan()}/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div className="row"style={{ marginTop: "1.2rem"}}>
+                        <div className="row"style={{ marginTop: "1.5rem"}}>
                             <div className='col-md-6'>
-                                <h2>Fan</h2>
+                                <h1>Fan</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.8rem"}}>
                                 <label className="switch">
                                 <input id="fan" type="checkbox" onClick={() => SwitchFan()}/>
                                 <span className="slider round"></span>
@@ -234,7 +234,7 @@ export default function MainMenu() {
                 </div>
             </div>
             <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div className="card bg-c-green order-card" style={{height:"17rem"}}>
+                <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
                             <h1 className="col-md-10 m-b-20" style={{fontWeight:"500"}}>Led</h1>
@@ -242,22 +242,22 @@ export default function MainMenu() {
                                 <Link to="/led-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div className="row" style={{marginTop:"1.2rem"}}>
+                        <div className="row" style={{marginTop:"1.4rem"}}>
                             <div className='col-md-6'>
-                                <h2>Auto</h2>
+                                <h1>Auto</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.7rem"}}>
                                 <label className="switch">
                                 <input id="autoLed" type="checkbox" onClick={() => SwitchAutoLed()}/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div className="row"style={{ marginTop: "1.2rem"}}>
+                        <div className="row"style={{ marginTop: "1.5rem"}}>
                             <div className='col-md-6'>
-                                <h2>Led</h2>
+                                <h1>Led</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.8rem"}}>
                                 <label className="switch">
                                 <input id="led" type="checkbox" onClick={() => SwitchLed()}/>
                                 <span className="slider round"></span>
@@ -280,7 +280,7 @@ export default function MainMenu() {
                             <div className='col-md-3'>
                                 <BsFillPeopleFill size={35}/>
                             </div>
-                            <div className='col-md-9'>
+                            <div className='col-md-9'style={{textAlign:"left"}}>
                                 <h3>{humanDetect}</h3>
                             </div>
                         </div>
@@ -288,7 +288,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <TiWeatherSunny size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{bright}</h3>
                             </div>
                         </div>
@@ -296,7 +296,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <WiHumidity size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{roomstatus.humidity}%</h3>
                             </div>
                         </div>
@@ -304,7 +304,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <RiTempHotLine size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{roomstatus.temperature}&deg;C</h3>
                             </div>
                         </div>
@@ -316,7 +316,7 @@ export default function MainMenu() {
             <>
             {" "}
             <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div className="card bg-c-green order-card" style={{height:"17rem"}}>
+                <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
                             <h1 className="col-md-10 col-sm-9 m-b-20" style={{fontWeight:"500"}}>Fan</h1>
@@ -324,22 +324,22 @@ export default function MainMenu() {
                                 <Link to="/fan-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div className="row" style={{marginTop:"1.2rem"}}>
+                        <div className="row" style={{marginTop:"1.4rem"}}>
                             <div className='col-md-6'>
-                                <h2>Auto</h2>
+                                <h1>Auto</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.7rem"}}>
                                 <label className="switch">
                                 <input id="autoFan" type="checkbox" onClick={() => SwitchAutoFan()} disabled/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div className="row"style={{ marginTop: "1.2rem"}}>
+                        <div className="row"style={{ marginTop: "1.5rem"}}>
                             <div className='col-md-6'>
-                                <h2>Fan</h2>
+                                <h1>Fan</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.8rem"}}>
                                 <label className="switch">
                                 <input id="fan" type="checkbox" onClick={() => SwitchFan()} disabled/>
                                 <span className="slider round"></span>
@@ -350,7 +350,7 @@ export default function MainMenu() {
                 </div>
             </div>
             <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                <div className="card bg-c-green order-card" style={{height:"17rem"}}>
+                <div className="card bg-c-green order-card" style={{height:"20rem"}}>
                     <div className="card-block">
                         <div className="row">
                             <h1 className="col-md-10 m-b-20" style={{fontWeight:"500"}}>Led</h1>
@@ -358,22 +358,22 @@ export default function MainMenu() {
                                 <Link to="/led-data-history" style={{color: "white"}}><AiOutlineInfoCircle size={30}/></Link>
                             </div>
                         </div>
-                        <div className="row" style={{marginTop:"1.2rem"}}>
+                        <div className="row" style={{marginTop:"1.4rem"}}>
                             <div className='col-md-6'>
-                                <h2>Auto</h2>
+                                <h1>Auto</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.7rem"}}>
                                 <label className="switch">
                                 <input id="autoLed" type="checkbox" onClick={() => SwitchAutoLed()} disabled/>
                                 <span className="slider round"></span>
                                 </label>
                             </div>
                         </div>
-                        <div className="row"style={{ marginTop: "1.2rem"}}>
+                        <div className="row"style={{ marginTop: "1.5rem"}}>
                             <div className='col-md-6'>
-                                <h2>Led</h2>
+                                <h1>Led</h1>
                             </div>
-                            <div className='col-md-6' style={{marginTop:"0.5rem"}}>
+                            <div className='col-md-6' style={{marginTop:"0.8rem"}}>
                                 <label className="switch">
                                 <input id="led" type="checkbox" onClick={() => SwitchLed()} disabled/>
                                 <span className="slider round"></span>
@@ -396,7 +396,7 @@ export default function MainMenu() {
                             <div className='col-md-3'>
                                 <BsFillPeopleFill size={35}/>
                             </div>
-                            <div className='col-md-9'>
+                            <div className='col-md-9' style={{textAlign:"left"}}>
                                 <h3>{humanDetect}</h3>
                             </div>
                         </div>
@@ -404,7 +404,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <TiWeatherSunny size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{bright}</h3>
                             </div>
                         </div>
@@ -412,7 +412,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <WiHumidity size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{roomstatus.humidity}%</h3>
                             </div>
                         </div>
@@ -420,7 +420,7 @@ export default function MainMenu() {
                             <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <RiTempHotLine size={35}/>
                             </div>
-                            <div className='col-md-9' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-9' style={{ marginTop: "0.4rem", textAlign:"left"}}>
                                 <h3>{roomstatus.temperature}&deg;C</h3>
                             </div>
                         </div>
