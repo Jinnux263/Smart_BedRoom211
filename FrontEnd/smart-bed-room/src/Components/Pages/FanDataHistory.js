@@ -30,6 +30,15 @@ export default function FanDataHistory() {
     })
     .catch((err) => console.log(err));
   }, []);
+  const interval = setInterval(function() {
+    fetch(`http://localhost:8000/fan/history`)
+    .then((res) => res = res.json())
+    .then((res) => {
+        setData(res);
+    })
+    .catch((err) => console.log(err));
+    // method to be executed;
+  }, 15000);
   return (
     <div>
       <div className="row">

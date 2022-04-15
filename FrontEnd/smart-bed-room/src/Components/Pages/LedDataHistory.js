@@ -30,6 +30,16 @@ export default function LedDataHistory() {
     })
     .catch((err) => console.log(err));
   }, []);
+
+  const interval = setInterval(function() {
+    fetch(`http://localhost:8000/bulb/history`)
+    .then((res) => res = res.json())
+    .then((res) => {
+        setData(res);
+    })
+    .catch((err) => console.log(err));
+    // method to be executed;
+  }, 15000);
   return (
     <div>
       <div className="row">
@@ -46,7 +56,7 @@ export default function LedDataHistory() {
         </div>
         <div className="row" style={{marginTop:"5rem"}}>
         <div className="col-lg-8 col-md-7">
-          <p style={{fontSize:"3rem"}}>Fan Data History</p>
+          <p style={{fontSize:"3rem"}}>Led Data History</p>
         </div>
         </div>
       <Table data={data} rowsPerPage={5}></Table>

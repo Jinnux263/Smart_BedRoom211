@@ -12,6 +12,7 @@ import {
 import {TiArrowMaximiseOutline, TiWeatherSunny} from 'react-icons/ti';
 import axios from 'axios';
 import { LoginContext } from '../../LoginContext';
+import { AiOutlineAreaChart } from 'react-icons/ai';
 
 export default function MainMenu() {
 
@@ -123,6 +124,44 @@ export default function MainMenu() {
     .catch((err) => console.log(err));
   }, []);
 
+//   const interval = setInterval(function() {
+//     fetch(`http://localhost:8000/room`)
+//     .then((res) => res = res.json())
+//     .then((res) => {
+//         setRoomstatus({humidity: res.humidity, brightness: res.brightness, hasHuman: res.hasHuman, temperature: res.temperature});
+//         if (res.hasHuman) {
+//             setHumanDetect("Has people");
+//         } else {
+//             setHumanDetect("No people");
+//         }
+//         if (res.brightness == 1) {
+//             setBright("Bright");
+//         } else {
+//             setBright("Dark");
+//         }
+//     })
+//     .catch((err) => console.log(err));
+
+//     fetch(`http://localhost:8000/fan`)
+//     .then((res) => res = res.json())
+//     .then((res) => {
+//         setFanstatus({isOn: res.isOn, isAuto: res.isAuto});
+//         document.getElementById("fan").checked = res.isOn ? true : false;
+//         document.getElementById("autoFan").checked = res.isAuto ? true : false;
+//     })
+//     .catch((err) => console.log(err));
+
+//     fetch(`http://localhost:8000/bulb`)
+//     .then((res) => res = res.json())
+//     .then((res) => {
+//         setLedstatus({isOn: res.isOn, isAuto: res.isAuto});
+//         document.getElementById("led").checked = res.isOn ? true : false;
+//         document.getElementById("autoLed").checked = res.isAuto ? true :false;
+//     })
+//     .catch((err) => console.log(err));
+
+//     // method to be executed;
+//   }, 30000);
   var today = new Date();
   var hour = today.getHours();
   var minute = today.getMinutes();
@@ -229,37 +268,43 @@ export default function MainMenu() {
                 </div>
             </div>
             <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
-                            <div className="card bg-c-green order-card">
+                <div className="card bg-c-green order-card">
                     <div className="card-block">
-                    <div className='row'>
-                            <div className='col-md-4'>
+                    <div className="row">
+                        <h3 className="col-md-10 m-b-20">Room data</h3>
+                        <div className='col-md-2'style={{marginTop:"0rem"}}>
+                            <Link to="/room-data-history" style={{color: "white"}}><AiOutlineAreaChart size={30}/></Link>
+                        </div>
+                    </div>
+                        <div className='row'>
+                            <div className='col-md-3'>
                                 <BsFillPeopleFill size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{humanDetect}</h4>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <TiWeatherSunny size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{bright}</h4>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <WiHumidity size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{roomstatus.humidity}%</h4>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <RiTempHotLine size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{roomstatus.temperature}&deg;C</h4>
                             </div>
                         </div>
@@ -341,35 +386,42 @@ export default function MainMenu() {
             <div className="col-md-4 col-xl-4" style={{ marginTop: "100px"}}>
                             <div className="card bg-c-green order-card">
                     <div className="card-block">
-                    <div className='row'>
-                            <div className='col-md-4'>
-                                <BsFillPeopleFill size={35}/>
-                            </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
-                                <h4>{humanDetect}</h4>
-                            </div>
+                    <div className="row">
+                        <h3 className="col-md-10 m-b-20">Room data</h3>
+                        <div className='col-md-2'style={{marginTop:"0rem"}}>
+                            <Link to="/" style={{color: "white"}}><AiOutlineAreaChart size={30}/></Link>
                         </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-md-3'>
+                            <BsFillPeopleFill size={35}/>
+                        </div>
+                        
+                        <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
+                            <h4>{humanDetect}</h4>
+                        </div>
+                    </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <TiWeatherSunny size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{bright}</h4>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <WiHumidity size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{roomstatus.humidity}%</h4>
                             </div>
                         </div>
                         <div className='row'>
-                            <div className='col-md-4' style={{ marginTop: "0.25rem"}}>
+                            <div className='col-md-3' style={{ marginTop: "0.25rem"}}>
                                 <RiTempHotLine size={35}/>
                             </div>
-                            <div className='col-md-4' style={{ marginTop: "0.4rem"}}>
+                            <div className='col-md-5' style={{ marginTop: "0.4rem"}}>
                                 <h4>{roomstatus.temperature}&deg;C</h4>
                             </div>
                         </div>

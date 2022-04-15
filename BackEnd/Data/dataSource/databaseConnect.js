@@ -1,7 +1,7 @@
 const DBconfig = {
     host: "localhost",
     user: "root",
-    password: "admin",
+    password: "149161123",
     database: "Doan",
     waitForConnections: true,
     connectionLimit: 100,
