@@ -199,6 +199,7 @@ background: linear-gradient(-135deg, #d6ffe4,#00f815);
     background: linear-gradient(-135deg, #000000,#00f815);
     color: rgb(255, 255, 255);
 }
+
 /* body {
     margin: 0;
     padding: 0;
@@ -291,6 +292,7 @@ width: 100%;
 z-index: 1;
 margin-bottom: 10px;
 }
+
 
 .input100 {
 font-family: Poppins-Medium;

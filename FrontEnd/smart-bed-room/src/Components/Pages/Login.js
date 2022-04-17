@@ -14,8 +14,33 @@ const styleLogin = {
     borderRadius: "30px",
     boxShadow: "0px 15px 16.83px 0.17px rgb(0,0,0,0.2)",
   };
+
+  function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+    useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+  }
+
 export default function Login() {
-  
+  const size = useWindowSize();
   const {state, setState} = useContext(LoginContext);
   const [user, setUser] = useState({
     username: "",
@@ -50,7 +75,6 @@ export default function Login() {
     })
     .catch((res, status) => alert(res, status));
   };
-  
   if (state.isLogin) return <Navigate to="/" />
   else
   return (
@@ -123,7 +147,20 @@ export default function Login() {
                   onChange={e => setUser({...user, password: e.target.value})}
                 />
               </div>
-              <button type="submit" className="btn mb-2 mb-md-0 btn-secondary btn-block btn-round" onClick={submitHandler}>Login</button>
+              {(size.width <= 1196 && size.width >= 989)? (
+                <>
+                {" "}
+                <div style={{alignItems:"center"}}>
+                  <button type="submit" className="btn mb-2 mb-md-0 btn-secondary btn-block btn-round" onClick={submitHandler}>Login</button>
+                </div>
+                </>
+              ) : (
+                <>
+                {" "}
+                <button type="submit" className="btn mb-2 mb-md-0 btn-secondary btn-block btn-round" onClick={submitHandler}>Login</button>
+                </>
+              )
+              }
             </form>
           </div>
         </div>
