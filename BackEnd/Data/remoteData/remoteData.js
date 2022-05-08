@@ -84,7 +84,7 @@ async function AdafruitTurnAutoBulb (isOn) {
     value = isOn ? "7" : "6";
     return axios.post('https://io.adafruit.com/api/feeds/auto-led/data', 
     {"value": value}, {
-        headers: {"x-aio-key": "aio_YChN25Fgm7ug7Arg7PZSKJGb81Eg"}
+        headers: {"x-aio-key": "aio_iMNx83QpxPntelWt2VVCOCxse9fm"}
     })
     .then(response => "Success!")
     .catch(error => {
@@ -96,7 +96,7 @@ async function AdafruitTurnAutoFan (isOn) {
     value = isOn ? "5" : "4";
     return axios.post('https://io.adafruit.com/api/feeds/auto-fan/data', 
     {"value": value}, {
-        headers: {"x-aio-key": "aio_YChN25Fgm7ug7Arg7PZSKJGb81Eg"}
+        headers: {"x-aio-key": "aio_iMNx83QpxPntelWt2VVCOCxse9fm"}
     })
     .then(response => "Success!")
     .catch(error => {
@@ -108,7 +108,7 @@ async function AdafruitTurnBulb (isOn) {
     value = isOn ? "3" : "2";
     return axios.post('https://io.adafruit.com/api/feeds/co3109-led/data', 
     {"value": value}, {
-        headers: {"x-aio-key": "aio_YChN25Fgm7ug7Arg7PZSKJGb81Eg"}
+        headers: {"x-aio-key": "aio_iMNx83QpxPntelWt2VVCOCxse9fm"}
     })
     .then(response => "Success!")
     .catch(error => {
@@ -120,7 +120,7 @@ async function AdafruitTurnFan (isOn) {
     value = isOn ? "1" : "0";
     return axios.post('https://io.adafruit.com/api/feeds/co3109-fan/data', 
     {"value": value}, {
-        headers: {"x-aio-key": "aio_YChN25Fgm7ug7Arg7PZSKJGb81Eg"}
+        headers: {"x-aio-key": "aio_iMNx83QpxPntelWt2VVCOCxse9fm"}
     })
     .then(response => "Success!")
     .catch(error => {
