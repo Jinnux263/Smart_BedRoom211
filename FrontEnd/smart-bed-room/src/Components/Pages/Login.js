@@ -80,10 +80,10 @@ export default function Login() {
   return (
     <div
     className="login bg-light d-flex align-items-center"
-    style={{ minHeight: "100vh" }}
+    style={{ minHeight: "100vh"}}
   >
     <div
-      className=" bg-white container py-lg-5 position-relative"
+      className=" bg-white container-fluid py-lg-5 position-relative"
       style={styleLogin}
     >
       <Link to="/">
